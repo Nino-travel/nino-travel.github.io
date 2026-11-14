@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /dl/
+Disallow: /thanks/
+Sitemap: https://nino-travel.github.io/sitemap.xml
