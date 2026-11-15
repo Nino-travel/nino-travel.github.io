@@ -45,6 +45,8 @@
     "#ngc .ngc-new{display:inline-block;margin-left:6px;vertical-align:2px;background:#fff;color:#e53935;font-size:.6rem;font-weight:900;border-radius:6px;padding:2px 5px;letter-spacing:.04em}" +
     "#ngc .ngc-load{position:absolute;inset:0;z-index:3;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:900;font-size:1.2rem;background:linear-gradient(180deg,#2b7fe0,#8fd0ff 60%,#4fc24a 60%)}" +
     "#ngc .ngc-load.on{display:flex}#ngc .ngc-load i{width:44px;height:44px;border-radius:50%;border:5px solid rgba(255,255,255,.35);border-top-color:#fff;animation:ngcSp .8s linear infinite}@keyframes ngcSp{to{transform:rotate(360deg)}}" +
+    "#ngc .ngc-th.fk{background:linear-gradient(180deg,#1a2560 0%,#3b4fb8 40%,#35ac4d 41%,#2e9e45 100%)}#ngc .ngc-th.hc{background:linear-gradient(180deg,#5fb6f5 0%,#c9ecff 50%,#4cbb2e 51%,#9a5a2e 70%)}" +
+    "#ngc .ngc-new.b{background:#ff3b4e;color:#fff}#ngc .ngc-sheet{max-height:78vh;overflow-y:auto;-webkit-overflow-scrolling:touch}#ngc .ngc-card{padding:9px 10px;margin-bottom:8px}#ngc .ngc-th{width:58px;height:58px}" +
     "#ngc .ngc-foot{text-align:center;color:#8e8e93;font-size:.72rem;margin-top:4px}" +
     "#ngc .ngc-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:20px}" +
     "#ngc .ngc-hero b{font-size:56px;filter:drop-shadow(0 6px 18px rgba(10,132,255,.6))}" +
@@ -83,6 +85,8 @@
           '<div class="ngc-h"><h3>Pick a game</h3><button class="ngc-x" data-a="close" aria-label="Close Game Center">✕</button></div>' +
           '<p class="ngc-sub">Play, beat your best, then text Nino your score 💬</p>' +
           '<button class="ngc-card ft" data-a="land"><span class="ngc-th l">🎡</span><span><strong>Nino Land<span class="ngc-new">NEW · 3D</span></strong><small data-s="land"></small></span><span class="ngc-play">Play</span></button>' +
+          '<button class="ngc-card" data-a="freekick"><span class="ngc-th fk">⚽</span><span><strong>Nino Free Kick<span class="ngc-new b">NEW</span></strong><small data-s="freekick"></small></span><span class="ngc-play">Play</span></button>' +
+          '<button class="ngc-card" data-a="hill"><span class="ngc-th hc">🚙</span><span><strong>Nino Hill Climb<span class="ngc-new b">NEW</span></strong><small data-s="hill"></small></span><span class="ngc-play">Play</span></button>' +
           '<button class="ngc-card" data-a="runner"><span class="ngc-th r">🏃</span><span><strong>Crowd Runner</strong><small data-s="runner"></small></span><span class="ngc-play">Play</span></button>' +
           '<button class="ngc-card" data-a="neon"><span class="ngc-th n">⚽</span><span><strong>Neon Ball</strong><small data-s="neon"></small></span><span class="ngc-play">Play</span></button>' +
           '<div class="ngc-foot">Works with touch or mouse · progress saves on this device</div>' +
@@ -538,6 +542,9 @@
     var r = root.querySelector('[data-s="runner"]'), n = root.querySelector('[data-s="neon"]');
     r.textContent = "Grow your crowd through the gates · Level " + LS.get("rlevel", 1) + " · 🪙 " + LS.get("coins", 0);
     var lp = LS.get("land", null) || {}; root.querySelector('[data-s="land"]').textContent = "3D park adventure · rides, stars & 5 hidden tokens" + (lp.tokens && lp.tokens.length ? " · " + lp.tokens.length + "/5" : "");
+    var fb = LS.get("fkbest", 0), hb = LS.get("hcbest", 0);
+    root.querySelector('[data-s="freekick"]').textContent = "Swipe to shoot, curl it past the wall" + (fb ? " · Best " + fb : "");
+    root.querySelector('[data-s="hill"]').textContent = "Drive the jeep up the hills, grab fuel" + (hb ? " · Best " + hb + "m" : "");
     var b = LS.get("nbest", 0); n.textContent = "Multiply your number in 50s" + (b ? " · Best " + abbr(b) : "");
   }
   function stopLand() { landReq++; loadEl.classList.remove("on"); if (land) { try { land.stop(); } catch (e) {} land = null; } cv.style.display = ""; }
@@ -545,17 +552,25 @@
   var land = null, landReq = 0, loadEl = root.querySelector(".ngc-load"), loaded = {};
   function loadScript(src) { return new Promise(function (res, rej) { if (loaded[src]) return res(); var s = document.createElement("script"); s.src = src; s.async = true; s.onload = function () { loaded[src] = 1; res(); }; s.onerror = function () { rej(new Error("load " + src)); }; document.head.appendChild(s); }); }
   var landApi = { LS: LS, sfx: sfx, panel: panel, hidePanel: hidePanel, textNino: function (m) { textNino(m); }, showMenu: function () { showMenu(); } };
-  function playLand() {
-    menu.style.display = "none"; topBar.style.display = ""; hidePanel(); stopLoop(); game = null; cv.style.display = "none"; loadEl.classList.add("on");
-    var my = ++landReq;
-    (window.THREE ? Promise.resolve() : loadScript("/vendor/three.min.js?v=160")).then(function () { return window.NinoLand ? null : loadScript("/ninoland.js?v=1"); }).then(function () {
+  var EXT = {
+    land: { name: "Nino Land", g: "NinoLand", load: "Building Nino Land…", bg: "linear-gradient(180deg,#2b7fe0,#8fd0ff 60%,#4fc24a 60%)", src: [["THREE", "/vendor/three.min.js?v=160"], ["NinoLand", "/ninoland.js?v=1"]], fail: "This browser couldn't start 3D graphics. Try Safari or Chrome." },
+    freekick: { name: "Nino Free Kick", g: "NinoFreeKick", load: "Walking out to the pitch…", bg: "linear-gradient(180deg,#0b1030,#1a2560 55%,#35ac4d 55%)", src: [["NinoFreeKick", "/freekick.js?v=1"]] },
+    hill: { name: "Nino Hill Climb", g: "NinoHillClimb", load: "Fueling up the jeep…", bg: "linear-gradient(180deg,#5fb6f5,#c9ecff 55%,#4cbb2e 55%,#9a5a2e 62%)", src: [["NinoHillClimb", "/hillclimb.js?v=1"]] }
+  };
+  function playExt(key) {
+    var E = EXT[key]; if (!E) return;
+    menu.style.display = "none"; topBar.style.display = ""; hidePanel(); stopLoop(); game = null; cv.style.display = "none";
+    loadEl.style.background = E.bg; loadEl.querySelector("span").textContent = E.load; loadEl.classList.add("on");
+    var my = ++landReq, p = Promise.resolve();
+    E.src.forEach(function (s) { p = p.then(function () { return window[s[0]] ? null : loadScript(s[1]); }); });
+    p.then(function () {
       if (my !== landReq || !root.classList.contains("on")) return;
-      try { land = window.NinoLand.start(frame, landApi); } catch (e) { land = null; loadEl.classList.remove("on"); panel({ title: "Nino Land needs 3D", lines: [{ t: "This browser couldn't start 3D graphics. Try Safari or Chrome." }], buttons: [{ label: "Game Center", fn: showMenu }] }); return; }
+      try { land = window[E.g].start(frame, landApi); land._key = key; } catch (e) { land = null; loadEl.classList.remove("on"); panel({ title: E.name + " couldn't start", lines: [{ t: E.fail || "Try again, or use Safari or Chrome." }], buttons: [{ label: "Game Center", fn: showMenu }] }); return; }
       loadEl.classList.remove("on");
-    }).catch(function () { if (my !== landReq) return; loadEl.classList.remove("on"); panel({ title: "Couldn't load Nino Land", lines: [{ t: "Check your connection and try again." }], buttons: [{ label: "Try again", fn: playLand }, { label: "Game Center", cls: "g", fn: showMenu }] }); });
+    }).catch(function () { if (my !== landReq) return; loadEl.classList.remove("on"); panel({ title: "Couldn't load " + E.name, lines: [{ t: "Check your connection and try again." }], buttons: [{ label: "Try again", fn: function () { playExt(key); } }, { label: "Game Center", cls: "g", fn: showMenu }] }); });
   }
   function play(which) {
-    if (which === "land") return playLand();
+    if (EXT[which]) return playExt(which);
     menu.style.display = "none"; topBar.style.display = ""; hidePanel(); resize();
     game = which === "neon" ? new NeonBall() : new Runner(); game.touched = false; setPaused(false); startLoop();
   }
@@ -569,7 +584,7 @@
   root.addEventListener("click", function (e) {
     var t = e.target.closest ? e.target.closest("[data-a]") : null; if (!t) { if (e.target === root) close(); return; }
     var a = t.getAttribute("data-a");
-    if (a === "close") close(); else if (a === "back") showMenu(); else if (a === "runner" || a === "neon" || a === "land") play(a);
+    if (a === "close") close(); else if (a === "back") showMenu(); else if (a === "runner" || a === "neon" || EXT[a]) play(a);
     else if (a === "resume") { setPaused(false); if (land) { pausedEl.classList.remove("on"); land.resume(); } }
     else if (a === "snd") { soundOn = !soundOn; LS.set("sound", soundOn); updSnd(); if (soundOn) sfx.good(); }
   });
