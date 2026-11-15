@@ -6,7 +6,7 @@
 <title>Nino Travel | Affordable flights, hotels & family trips</title>
 <meta name="description" content="Compare flights, hotels, activities, cars and travel eSIMs, estimate your total trip cost, then book directly with established travel brands. Family travel guides, delay help, and a Kids' Zone.">
 <link rel="canonical" href="https://nino-travel.github.io/travel.html">
-<meta name="theme-color" content="#16213e">
+<meta name="theme-color" content="#0b0d12">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nino Travel">
 <meta property="og:title" content="Nino Travel | Affordable flights, hotels & family trips">
@@ -22,6 +22,88 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+<link rel="preload" as="image" href="/assets/hotels/hero-infinity-pool.webp" type="image/webp" fetchpriority="high">
+<style>
+/* ===== Luxury hotel hero (photos: Pexels License, see /assets/hotels/CREDITS.txt) ===== */
+.lux{--gold:#d8b46a;--gold2:#f3dca2;--lx-ink:#0b0d12;position:relative;isolation:isolate;overflow:hidden;color:#fff;background:#0b0d12 url("data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAAAwBgCdASogABUAPu1qrlCppaQiqAqpMB2JbACdMoRwMP10oIZwdQuP5LhjAKiV7z0rUzG2tdcdkiUAAPhjesX/Vr6AFlwPFZ3yU5rINzmmlnEFI2mqYDCeEOPQ5vYmfITG0dMcVKBBPk8h4GXq4ZDB0rZU/NYP6PUb6TJPvZsIZ1zHDIzAVYFFPrmra4QAyMTE/Quq+Nv1miVQ6GxXDJuM3YOhGZKJ2bHK2Mw1eVgPjFg2pJQ89nkzoagiRnqKV+NSTcW6uaSE6xrgxWA4bR1GCgnVq+NU/YiCTHmOGGY8YAAA") center/cover no-repeat;min-height:calc(100vh - 64px);min-height:calc(100svh - 64px);display:flex;align-items:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.lux-slides{position:absolute;inset:0;z-index:-2}
+.lux-slide{position:absolute;inset:-2%;background-size:cover;background-position:center;opacity:0;transform:scale(1.04);transition:opacity 1.6s ease;will-change:opacity,transform}
+.lux-first{background-image:url("/assets/hotels/hero-infinity-pool.webp")}
+.lux-slide.on{opacity:1;animation:luxKen 9s ease-out forwards}
+@keyframes luxKen{from{transform:scale(1.04)}to{transform:scale(1.14) translate3d(-1%,-1%,0)}}
+.lux::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,10,16,.5) 0%,rgba(8,10,16,.18) 28%,rgba(8,10,16,.45) 60%,rgba(8,10,16,.92) 100%),radial-gradient(120% 70% at 50% 40%,transparent 40%,rgba(0,0,0,.35) 100%)}
+.lux-in{width:min(1120px,100% - 32px);margin:0 auto;padding:34px 0 40px;display:grid;gap:22px;align-items:center}
+@media(min-width:980px){.lux-in{grid-template-columns:1.05fr .95fr;gap:48px;padding:56px 0}}
+.lux-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin:0 0 14px;padding:6px 12px;border:1px solid rgba(216,180,106,.45);border-radius:999px;background:rgba(10,12,18,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.lux h1{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:clamp(2.6rem,9vw,4.6rem);line-height:1.02;letter-spacing:-.01em;margin:0 0 12px;text-shadow:0 4px 30px rgba(0,0,0,.45)}
+.lux h1 em{font-style:italic;font-weight:600;background:linear-gradient(100deg,var(--gold2),var(--gold) 55%,#b8893e);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(0,0,0,.55))}
+.lux-sub{text-shadow:0 2px 14px rgba(0,0,0,.6);font-size:clamp(1.02rem,2.6vw,1.2rem);color:#e9e4d8;margin:0;max-width:30ch;font-weight:400}
+.lux-dots{display:flex;gap:6px;margin-top:18px}
+.lux-dots button{width:22px;height:3px;border:0;padding:0;border-radius:3px;background:rgba(255,255,255,.35);cursor:pointer;transition:background .3s,width .3s}
+.lux-dots button.on{background:var(--gold);width:34px}
+.lux-card{background:rgba(14,16,24,.52);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:16px;box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3)}
+.lux-card h2{font-family:"Playfair Display",Georgia,serif;font-size:1.25rem;font-weight:600;margin:2px 4px 12px;color:#fff;letter-spacing:.01em}
+.lux-g{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lux-f{display:flex;flex-direction:column;gap:5px;min-width:0}.lux-f.w{grid-column:1/-1}
+.lux-f label{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
+.lux-f input,.lux-f select{font:inherit;font-size:16px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:13px;padding:11px 12px;min-height:48px;width:100%;color-scheme:dark;-webkit-appearance:none;appearance:none}
+.lux-f select{background-image:linear-gradient(45deg,transparent 50%,var(--gold2) 50%),linear-gradient(135deg,var(--gold2) 50%,transparent 50%);background-position:calc(100% - 18px) 21px,calc(100% - 13px) 21px;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px}
+.lux-f select option{color:#111}
+.lux-f input::placeholder{color:rgba(255,255,255,.55)}
+.lux-f input:focus,.lux-f select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(216,180,106,.25)}
+.lux-btn{grid-column:1/-1;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border:0;border-radius:14px;cursor:pointer;font:inherit;font-weight:700;font-size:1.02rem;letter-spacing:.02em;color:#1a1408;background:linear-gradient(100deg,#f3dca2,#d8b46a 50%,#c39a4f);box-shadow:0 10px 30px rgba(216,180,106,.35);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.lux-btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:luxShine 4.5s ease-in-out infinite}
+@keyframes luxShine{0%,70%{left:-60%}100%{left:130%}}
+.lux-btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(216,180,106,.45)}
+.lux-err{grid-column:1/-1;color:#ffb4a2;font-size:.85rem;margin:0;min-height:0}
+.lux-err:empty{display:none}
+.lux-alt{grid-column:1/-1;text-align:center;font-size:.8rem;color:#cfc8b8;margin:2px 0 0}
+.lux-alt button{background:none;border:0;padding:0;font:inherit;color:var(--gold2);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.lux-scroll{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;display:none}
+@media(min-height:760px){.lux-scroll{display:block}}
+.lux-scroll span{display:block;width:1px;height:22px;margin:6px auto 0;background:linear-gradient(var(--gold),transparent);animation:luxDrop 2s ease-in-out infinite}
+@keyframes luxDrop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* strip under the hero */
+.lux-strip{background:linear-gradient(180deg,#0b0d12,#141824 70%,#16213e);color:#fff;padding:8px 0 44px;font-family:Inter,system-ui,-apple-system,sans-serif}
+.lux-wrap{width:min(1120px,100% - 32px);margin:0 auto;display:grid;gap:26px}
+.ht{position:relative;display:grid;gap:14px;padding:20px;border-radius:22px;background:linear-gradient(135deg,rgba(216,180,106,.16),rgba(255,255,255,.04) 45%,rgba(255,255,255,.02));border:1px solid rgba(216,180,106,.4);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+@media(min-width:820px){.ht{grid-template-columns:1.2fr 1fr;align-items:center;padding:26px 30px}}
+.ht-badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#1a1408;background:var(--gold,#d8b46a);background:#d8b46a;border-radius:999px;padding:4px 10px;margin-bottom:8px}
+.ht h3{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,5vw,2rem);font-weight:700;margin:0 0 4px;line-height:1.1}
+.ht h3 b{color:#f3dca2}
+.ht p{margin:0;color:#d9d3c6;font-size:.95rem}
+.ht-act{display:grid;gap:10px}
+.ht-code{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:54px;padding:8px 8px 8px 16px;border-radius:14px;border:1.5px dashed rgba(243,220,162,.7);background:rgba(0,0,0,.3);color:#fff;font:inherit;cursor:pointer;transition:border-color .2s,background .2s}
+.ht-code:hover{background:rgba(216,180,106,.12)}
+.ht-code .c{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:1.12rem;letter-spacing:.12em;color:#f3dca2}
+.ht-code .t{font-size:.78rem;font-weight:700;color:#1a1408;background:#f3dca2;border-radius:10px;padding:8px 12px;white-space:nowrap;transition:background .2s}
+.ht-code.ok{border-color:#7ee2b8}.ht-code.ok .t{background:#7ee2b8}
+.ht-get{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:14px;background:#fff;color:#0b0d12;text-decoration:none;font-weight:700;transition:transform .25s,box-shadow .25s}
+.ht-get:hover{color:#0b0d12;transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,255,255,.18)}
+.ht-fine{font-size:.74rem;color:#a9a294;margin:0;line-height:1.4}
+.vibes h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:1.35rem;margin:0 0 12px}
+.vibes h3 small{display:block;font-family:Inter,system-ui,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#d8b46a;font-weight:600;margin-bottom:4px}
+.vibe-row{display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
+.vibe-row::-webkit-scrollbar{display:none}
+@media(min-width:720px){.vibe-row{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
+.vibe{position:relative;scroll-snap-align:start;aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);cursor:pointer;padding:0;background:#111;color:#fff;font:inherit;text-align:left;transition:transform .35s,box-shadow .35s}
+.vibe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.vibe::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.8))}
+.vibe span{position:absolute;left:14px;right:14px;bottom:12px;z-index:1}
+.vibe strong{display:block;font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;font-weight:600}
+.vibe em{font-style:normal;font-size:.78rem;color:#f3dca2;letter-spacing:.04em}
+.vibe:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.45)}.vibe:hover img{transform:scale(1.06)}
+.lux-credit{font-size:.68rem;color:#8d887d;margin:0}.lux-credit a{color:#a9a294}
+/* entrance animations */
+.lx-a{opacity:0;transform:translateY(18px);animation:luxUp .9s cubic-bezier(.2,.7,.2,1) forwards}
+.lx-d1{animation-delay:.1s}.lx-d2{animation-delay:.25s}.lx-d3{animation-delay:.4s}.lx-d4{animation-delay:.55s}
+@keyframes luxUp{to{opacity:1;transform:none}}
+.lx-r{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}.lx-r.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.lux-slide,.lux-slide.on{animation:none;transform:none;transition:none}.lx-a,.lx-r{animation:none;opacity:1;transform:none;transition:none}.lux-btn::after,.lux-scroll span{animation:none}.vibe,.vibe img,.ht-get,.lux-btn{transition:none}}
+</style>
+
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Nino Travel","url":"https://nino-travel.github.io/travel.html","description":"Search flights, hotels, cars, activities and eSIMs, then book with established travel partners."}</script>
 </head>
 <body>
@@ -44,6 +126,67 @@
 </header>
 
 <main id="main">
+
+<!-- Luxury hotel hero. Photos: Pexels License. Ken Chuang, Denys Gromov, Sokil, Ahmet ÇÖTÜR, Richard, Mineia Martins, Allen Boguslavsky, Israel Torres. Full list: /assets/hotels/CREDITS.txt -->
+<section class="lux" id="hotels" aria-labelledby="lux-title">
+  <div class="lux-slides" aria-hidden="true">
+    <div class="lux-slide lux-first on"></div>
+    <div class="lux-slide" id="lux-s2" data-bg="/assets/hotels/hero-skyline-infinity.webp"></div>
+    <div class="lux-slide" data-bg="/assets/hotels/hero-ocean-suite.webp"></div>
+    <div class="lux-slide" data-bg="/assets/hotels/hero-rooftop-pool.webp"></div>
+    <div class="lux-slide" data-bg="/assets/hotels/hero-night-pool.webp"></div>
+  </div>
+  <div class="lux-in">
+    <div>
+      <p class="lux-kicker lx-a">✦ Nino Travel · Luxury Stays</p>
+      <h1 id="lux-title" class="lx-a lx-d1">Stay Like a <em>Legend.</em></h1>
+      <p class="lux-sub lx-a lx-d2">Luxury hotels tonight, for less. Pools, suites &amp; rooftop views.</p>
+      <div class="lux-dots lx-a lx-d2" role="group" aria-label="Hotel photos">
+        <button class="on" aria-label="Photo 1"></button><button aria-label="Photo 2"></button><button aria-label="Photo 3"></button><button aria-label="Photo 4"></button><button aria-label="Photo 5"></button>
+      </div>
+    </div>
+    <form class="lux-card lx-a lx-d3" id="lux-form" novalidate>
+      <h2>Find your luxury stay</h2>
+      <div class="lux-g">
+        <div class="lux-f w"><label for="lx-dest">Where to?</label><input id="lx-dest" placeholder="Miami, Cancun, New York…" autocomplete="off" enterkeyhint="search"></div>
+        <div class="lux-f"><label for="lx-in">Check-in</label><input type="date" id="lx-in"></div>
+        <div class="lux-f"><label for="lx-out">Check-out</label><input type="date" id="lx-out"></div>
+        <div class="lux-f w"><label for="lx-guests">Guests</label><select id="lx-guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option></select></div>
+        <p class="lux-err" id="lx-err" role="alert"></p>
+        <button type="submit" class="lux-btn">Search Hotels <span aria-hidden="true">→</span></button>
+        <p class="lux-alt">Opens Booking.com · or <button type="button" id="lx-exp">compare on Expedia</button></p>
+      </div>
+    </form>
+  </div>
+  <a class="lux-scroll" href="#ht-promo">Explore<span></span></a>
+</section>
+
+<section class="lux-strip" aria-label="Hotel deals">
+  <div class="lux-wrap">
+    <div class="ht lx-r" id="ht-promo">
+      <div>
+        <span class="ht-badge">HotelTonight × Nino</span>
+        <h3>Get <b>$25 off</b> your first hotel</h3>
+        <p>Download HotelTonight and use Nino's code for last-minute luxury deals.</p>
+      </div>
+      <div class="ht-act">
+        <button type="button" class="ht-code" id="ht-code" aria-label="Copy code RDAVIDSONKAY"><span class="c">RDAVIDSONKAY</span><span class="t" id="ht-code-t">Tap to copy</span></button>
+        <a class="ht-get" id="ht-get" href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener"><span aria-hidden="true">⬇</span> Get the app</a>
+        <p class="ht-fine">Nino's referral code — Nino may earn a credit when you book. New HotelTonight users. Terms apply.</p>
+      </div>
+    </div>
+    <div class="vibes lx-r">
+      <h3><small>Pick a vibe</small>Where are we staying?</h3>
+      <div class="vibe-row">
+        <button type="button" class="vibe" data-vibe="Miami"><img src="/assets/hotels/vibe-miami.webp" alt="Rooftop hotel pool overlooking Miami towers" loading="lazy" width="720" height="480"><span><strong>Miami</strong><em>Rooftop pools &amp; city views</em></span></button>
+        <button type="button" class="vibe" data-vibe="New York"><img src="/assets/hotels/vibe-nyc.webp" alt="New York City skyline at night" loading="lazy" width="720" height="540"><span><strong>NYC Nights</strong><em>Skyline suites</em></span></button>
+        <button type="button" class="vibe" data-vibe="Cancun"><img src="/assets/hotels/vibe-cancun.webp" alt="Cancun beachfront resorts and turquoise sea" loading="lazy" width="720" height="540"><span><strong>Cancun Resorts</strong><em>Turquoise water, all-inclusive</em></span></button>
+      </div>
+    </div>
+    <p class="lux-credit">Photos: Sokil, Ken Chuang, Denys Gromov, Ahmet ÇÖTÜR, Richard, Mineia Martins, Allen Boguslavsky &amp; Israel Torres via <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a>.</p>
+  </div>
+</section>
+
 
 <section class="hero" id="search" aria-labelledby="hero-title">
   <div class="container">
@@ -244,5 +387,52 @@
   </div>
 </footer>
 <script src="/config.js" defer></script><script src="/app.js" defer></script>
+<script>
+/* Luxury hero: slideshow, search, promo copy, vibes */
+(function(){
+  var d=document,$=function(s){return d.querySelector(s)};
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // slideshow
+  var slides=[].slice.call(d.querySelectorAll('.lux-slide')),dots=[].slice.call(d.querySelectorAll('.lux-dots button')),cur=0,timer;
+  function load(el){var b=el.getAttribute('data-bg');if(b){el.style.backgroundImage="url('"+b+"')";el.removeAttribute('data-bg');}}
+  function show(i){i=(i+slides.length)%slides.length;load(slides[i]);load(slides[(i+1)%slides.length]);
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});dots.forEach(function(b,k){b.classList.toggle('on',k===i)});cur=i;}
+  function auto(){clearInterval(timer);if(!reduce)timer=setInterval(function(){show(cur+1)},6000);}
+  window.addEventListener('load',function(){load(slides[1]);auto();});
+  dots.forEach(function(b,k){b.addEventListener('click',function(){show(k);auto();})});
+  // dates
+  function pad(n){return(n<10?'0':'')+n}function iso(x){return x.getFullYear()+'-'+pad(x.getMonth()+1)+'-'+pad(x.getDate())}
+  var t=new Date(),ci=$('#lx-in'),co=$('#lx-out');
+  ci.min=co.min=iso(t);ci.value=iso(new Date(t.getFullYear(),t.getMonth(),t.getDate()+7));co.value=iso(new Date(t.getFullYear(),t.getMonth(),t.getDate()+9));
+  ci.addEventListener('change',function(){if(co.value<=ci.value){var x=new Date(ci.value+'T12:00');x.setDate(x.getDate()+2);co.value=iso(x);}co.min=ci.value;});
+  // search: reuse the site's own hotel link builders (app.js / config.js) and sync the main hotel form
+  function opts(){var e=$('#lx-err');e.textContent='';var dest=$('#lx-dest').value.trim();
+    if(!dest){e.textContent='Where are you going? Enter a city or hotel name.';$('#lx-dest').focus();return null;}
+    if(!ci.value||!co.value||co.value<=ci.value){e.textContent='Choose a check-out date after check-in.';return null;}
+    var o={dest:dest,checkin:ci.value,checkout:co.value,adults:+$('#lx-guests').value||2,children:0,rooms:1};
+    var m={'#h-dest':o.dest,'#h-in':o.checkin,'#h-out':o.checkout,'#h-adults':String(Math.min(16,o.adults))};
+    Object.keys(m).forEach(function(k){var el=$(k);if(el)el.value=m[k];});return o;}
+  function go(kind){var o=opts();if(!o)return;var L=window.NV_LINKS;
+    if(!L){var t=d.getElementById('tab-hotels');if(t)t.click();location.hash='search';return;}
+    var url=kind==='exp'?L.expediaHotels(o):L.booking(o);var w=window.open(url,'_blank','noopener');if(!w)location.href=url;}
+  $('#lux-form').addEventListener('submit',function(e){e.preventDefault();go('bk');});
+  $('#lx-exp').addEventListener('click',function(){go('exp');});
+  // vibes prefill
+  [].forEach.call(d.querySelectorAll('[data-vibe]'),function(v){v.addEventListener('click',function(){
+    $('#lx-dest').value=v.getAttribute('data-vibe');$('#lx-err').textContent='';
+    $('#hotels').scrollIntoView({behavior:reduce?'auto':'smooth'});setTimeout(function(){$('.lux-btn').focus({preventScroll:true});},reduce?0:600);});});
+  // promo copy
+  var cb=$('#ht-code'),ct=$('#ht-code-t');
+  function done(){cb.classList.add('ok');ct.textContent='Copied! ✓';setTimeout(function(){cb.classList.remove('ok');ct.textContent='Tap to copy';},2200);}
+  function fallback(){var ta=d.createElement('textarea');ta.value='RDAVIDSONKAY';ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';d.body.appendChild(ta);ta.select();ta.setSelectionRange(0,99);try{d.execCommand('copy');}catch(e){}d.body.removeChild(ta);done();}
+  cb.addEventListener('click',function(){if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText('RDAVIDSONKAY').then(done,fallback);}else fallback();});
+  // Android -> verified Play Store listing
+  if(/Android/i.test(navigator.userAgent))$('#ht-get').href='https://play.google.com/store/apps/details?id=com.hoteltonight.android.prod';
+  // reveal on scroll
+  var rs=[].slice.call(d.querySelectorAll('.lx-r'));
+  if(reduce||!('IntersectionObserver' in window)){rs.forEach(function(r){r.classList.add('in')});}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});rs.forEach(function(r){io.observe(r)});}
+})();
+</script>
 </body>
 </html>

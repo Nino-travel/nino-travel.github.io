@@ -1,0 +1,21 @@
+Nino Travel - hotel photo credits
+All photos are from Pexels and used under the Pexels License (free to use, no attribution required;
+credited here anyway). https://www.pexels.com/license/
+Files were resized and converted to WebP for this site.
+
+hero-night-pool.webp     "A Swimming Pool of a Hotel at Night" - Denys Gromov
+                         https://www.pexels.com/photo/a-swimming-pool-of-a-hotel-at-night-7974839/
+hero-infinity-pool.webp  "Elegant Resort with Luxurious Infinity Pool" - Sokil (Сокіл Sokil)
+                         https://www.pexels.com/photo/elegant-resort-with-luxurious-infinity-pool-38406370/
+hero-skyline-infinity.webp "Infinity Pool at the Marina Bay Sands Hotel" - Ken Chuang
+                         https://www.pexels.com/photo/infinity-pool-at-the-marina-bay-sands-hotel-12343406/
+hero-ocean-suite.webp    "A Hotel Room" - Ahmet ÇÖTÜR
+                         https://www.pexels.com/photo/a-bedroom-with-a-large-bed-and-a-balcony-overlooking-the-ocean-27195986/
+hero-rooftop-pool.webp   "Luxurious Rooftop Pool Overlooking Dubai Skyline" - Richard
+                         https://www.pexels.com/photo/luxurious-rooftop-pool-overlooking-dubai-skyline-33647166/
+vibe-miami.webp          "Pool on Rooftop of JW Marriot Marquis Hotel in Miami" - Mineia Martins
+                         https://www.pexels.com/photo/miami-28332790/
+vibe-nyc.webp            "Stunning Night View of New York City Skyline" - Allen Boguslavsky
+                         https://www.pexels.com/photo/stunning-night-view-of-new-york-city-skyline-30532241/
+vibe-cancun.webp         "Hotels and Resorts on Sea Coast in Cancun" - Israel Torres
+                         https://www.pexels.com/photo/hotels-and-resorts-on-sea-coast-in-cancun-20210508/
