@@ -53,10 +53,10 @@
 .lux-f select option{color:#111}
 .lux-f input::placeholder{color:rgba(255,255,255,.55)}
 .lux-f input:focus,.lux-f select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(216,180,106,.25)}
-.lux-btn{grid-column:1/-1;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border:0;border-radius:14px;cursor:pointer;font:inherit;font-weight:700;font-size:1.02rem;letter-spacing:.02em;color:#1a1408;background:linear-gradient(100deg,#f3dca2,#d8b46a 50%,#c39a4f);box-shadow:0 10px 30px rgba(216,180,106,.35);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.lux-btn{grid-column:1/-1;text-decoration:none;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border:0;border-radius:14px;cursor:pointer;font:inherit;font-weight:700;font-size:1.02rem;letter-spacing:.02em;color:#1a1408;background:linear-gradient(100deg,#f3dca2,#d8b46a 50%,#c39a4f);box-shadow:0 10px 30px rgba(216,180,106,.35);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
 .lux-btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:luxShine 4.5s ease-in-out infinite}
 @keyframes luxShine{0%,70%{left:-60%}100%{left:130%}}
-.lux-btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(216,180,106,.45)}
+.lux-btn:hover{color:#1a1408;transform:translateY(-2px);box-shadow:0 16px 36px rgba(216,180,106,.45)}
 .lux-err{grid-column:1/-1;color:#ffb4a2;font-size:.85rem;margin:0;min-height:0}
 .lux-err:empty{display:none}
 .lux-alt{grid-column:1/-1;text-align:center;font-size:.8rem;color:#cfc8b8;margin:2px 0 0}
@@ -65,43 +65,68 @@
 @media(min-height:760px){.lux-scroll{display:block}}
 .lux-scroll span{display:block;width:1px;height:22px;margin:6px auto 0;background:linear-gradient(var(--gold),transparent);animation:luxDrop 2s ease-in-out infinite}
 @keyframes luxDrop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-/* strip under the hero */
-.lux-strip{background:linear-gradient(180deg,#0b0d12,#141824 70%,#16213e);color:#fff;padding:8px 0 44px;font-family:Inter,system-ui,-apple-system,sans-serif}
-.lux-wrap{width:min(1120px,100% - 32px);margin:0 auto;display:grid;gap:26px}
-.ht{position:relative;display:grid;gap:14px;padding:20px;border-radius:22px;background:linear-gradient(135deg,rgba(216,180,106,.16),rgba(255,255,255,.04) 45%,rgba(255,255,255,.02));border:1px solid rgba(216,180,106,.4);box-shadow:0 20px 50px rgba(0,0,0,.35)}
-@media(min-width:820px){.ht{grid-template-columns:1.2fr 1fr;align-items:center;padding:26px 30px}}
-.ht-badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#1a1408;background:var(--gold,#d8b46a);background:#d8b46a;border-radius:999px;padding:4px 10px;margin-bottom:8px}
-.ht h3{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,5vw,2rem);font-weight:700;margin:0 0 4px;line-height:1.1}
-.ht h3 b{color:#f3dca2}
-.ht p{margin:0;color:#d9d3c6;font-size:.95rem}
-.ht-act{display:grid;gap:10px}
-.ht-code{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:54px;padding:8px 8px 8px 16px;border-radius:14px;border:1.5px dashed rgba(243,220,162,.7);background:rgba(0,0,0,.3);color:#fff;font:inherit;cursor:pointer;transition:border-color .2s,background .2s}
-.ht-code:hover{background:rgba(216,180,106,.12)}
-.ht-code .c{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:1.12rem;letter-spacing:.12em;color:#f3dca2}
-.ht-code .t{font-size:.78rem;font-weight:700;color:#1a1408;background:#f3dca2;border-radius:10px;padding:8px 12px;white-space:nowrap;transition:background .2s}
-.ht-code.ok{border-color:#7ee2b8}.ht-code.ok .t{background:#7ee2b8}
-.ht-get{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:14px;background:#fff;color:#0b0d12;text-decoration:none;font-weight:700;transition:transform .25s,box-shadow .25s}
-.ht-get:hover{color:#0b0d12;transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,255,255,.18)}
-.ht-fine{font-size:.74rem;color:#a9a294;margin:0;line-height:1.4}
-.vibes h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:1.35rem;margin:0 0 12px}
-.vibes h3 small{display:block;font-family:Inter,system-ui,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#d8b46a;font-weight:600;margin-bottom:4px}
-.vibe-row{display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
-.vibe-row::-webkit-scrollbar{display:none}
-@media(min-width:720px){.vibe-row{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
-.vibe{position:relative;scroll-snap-align:start;aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);cursor:pointer;padding:0;background:#111;color:#fff;font:inherit;text-align:left;transition:transform .35s,box-shadow .35s}
-.vibe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-.vibe::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.8))}
-.vibe span{position:absolute;left:14px;right:14px;bottom:12px;z-index:1}
-.vibe strong{display:block;font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;font-weight:600}
-.vibe em{font-style:normal;font-size:.78rem;color:#f3dca2;letter-spacing:.04em}
-.vibe:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.45)}.vibe:hover img{transform:scale(1.06)}
+/* tabs in the search card */
+.lux-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;margin:0 0 14px;border-radius:14px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.1)}
+.lux-tab{border:0;background:none;color:#cfc8b8;font:inherit;font-weight:600;font-size:.92rem;padding:10px 6px;border-radius:11px;cursor:pointer;transition:background .25s,color .25s;white-space:nowrap}
+.lux-tab[aria-selected=true]{background:#fff;color:#0b0d12;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.lux-p[hidden]{display:none}
+.lux-pitch{margin:0 2px 12px;color:#e9e4d8;font-size:.95rem}
+.lux-pitch b{color:#fff}
+.lux-f .ac-list{background:#151821;border-color:rgba(255,255,255,.14)}.lux-f .ac-list li{color:#eee}.lux-f .ac-list li[aria-selected=true],.lux-f .ac-list li:hover{background:rgba(216,180,106,.18)}.lux-f .ac-list .code{color:#f3dca2}.lux-f .ac-list small{color:#aaa}
+.lux-code{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:52px;padding:7px 7px 7px 14px;border-radius:13px;border:1.5px dashed rgba(243,220,162,.7);background:rgba(0,0,0,.3);color:#fff;font:inherit;cursor:pointer;text-align:left}
+.lux-code .l{font-size:.78rem;color:#d9d3c6;line-height:1.25}.lux-code .l b{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.05rem;letter-spacing:.1em;color:#f3dca2}
+.lux-code .t{font-size:.76rem;font-weight:700;color:#1a1408;background:#f3dca2;border-radius:10px;padding:8px 11px;white-space:nowrap}
+.lux-code.ok{border-color:#5eead4}.lux-code.ok .t{background:#5eead4}
+.lux-fine{grid-column:1/-1;font-size:.72rem;color:#a9a294;margin:0;text-align:center;line-height:1.4}
+.lux-toast{position:fixed;left:50%;bottom:22px;z-index:200;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#fff;color:#0b0d12;font:600 .92rem Inter,system-ui,sans-serif;padding:12px 18px;border-radius:999px;box-shadow:0 14px 40px rgba(0,0,0,.4);transition:opacity .3s,transform .3s;white-space:nowrap}
+.lux-toast.on{opacity:1;transform:translate(-50%,0)}
+/* dark app-style feed */
+.lux-strip{background:#0b0d12;color:#fff;padding:10px 0 48px;font-family:Inter,system-ui,-apple-system,sans-serif}
+.lux-wrap{width:min(1120px,100% - 32px);margin:0 auto;display:grid;gap:22px}
+.lx-h{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:1.45rem;margin:0}
+.lx-h small{display:block;font-family:Inter,system-ui,sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#d8b46a;font-weight:600;margin-bottom:4px}
+.perks{background:#161922;border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:18px 16px 12px}
+.perks-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 2px 8px}
+.perks-top .lx-chip{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
+.prow{display:flex;align-items:center;gap:14px;width:100%;padding:12px 2px;border:0;border-top:1px solid rgba(255,255,255,.07);background:none;color:#fff;font:inherit;text-align:left;text-decoration:none;cursor:pointer}
+.prow:first-of-type{border-top:0}
+.prow .ic{flex:0 0 44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:1.2rem;background:rgba(45,212,191,.14);border:1px solid rgba(45,212,191,.35)}
+.prow .ic.p{background:rgba(139,92,246,.16);border-color:rgba(139,92,246,.45)}
+.prow .tx{flex:1;min-width:0}.prow .tx strong{display:block;font-size:.98rem;font-weight:600}.prow .tx span{display:block;font-size:.82rem;color:#a7a9b4}
+.prow .v{font-weight:700;font-size:.95rem;color:#5eead4;white-space:nowrap}.prow .v.g{color:#f3dca2;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em}
+.prow:hover .tx strong{color:#f3dca2;color:#f3dca2}
+.perks-fine{font-size:.72rem;color:#8f8a80;margin:6px 2px 0;line-height:1.4}
+.feed{display:grid;gap:16px}
+@media(min-width:700px){.feed{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.feed{grid-template-columns:repeat(3,1fr)}}
+.fc{position:relative;display:flex;flex-direction:column;background:#161922;border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;color:#fff;text-decoration:none;transition:transform .35s,box-shadow .35s,border-color .35s}
+.fc:hover{color:#fff;transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.5);border-color:rgba(216,180,106,.35)}
+.fc-link{color:inherit;text-decoration:none}.fc-link:hover{color:inherit}.fc-link::after{content:"";position:absolute;inset:0;z-index:1}
+.fc-m{position:relative;aspect-ratio:4/3;overflow:hidden;background:#222}
+.fc-m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s ease}
+.fc:hover .fc-m img{transform:scale(1.05)}
+.fc-m.fc-art{aspect-ratio:16/8;display:grid;place-items:center;font-size:3rem;background:radial-gradient(120% 120% at 20% 0%,rgba(139,92,246,.55),transparent 60%),radial-gradient(100% 100% at 100% 100%,rgba(45,212,191,.35),transparent 60%),#1b1e2a}
+.fc-m.fc-art.fc-alt{background:radial-gradient(120% 120% at 80% 0%,rgba(45,212,191,.45),transparent 60%),radial-gradient(100% 100% at 0% 100%,rgba(216,180,106,.35),transparent 60%),#1b1e2a}
+.pill{position:absolute;left:12px;top:12px;z-index:1;font-size:.72rem;font-weight:600;color:#fff;background:rgba(10,12,18,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 10px}
+.heart{position:absolute;right:10px;top:10px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;display:grid;place-items:center;background:rgba(10,12,18,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer;color:#fff;padding:0}
+.heart svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .2s}
+.heart[aria-pressed=true]{color:#ff4d6d}.heart[aria-pressed=true] svg{fill:currentColor;transform:scale(1.12)}
+.fc-b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.fc-b h3{margin:0;font-size:1.08rem;font-weight:600;line-height:1.25}
+.fc-b p{margin:0;color:#a7a9b4;font-size:.86rem}
+.fc-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:6px}
+.lx-chip{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;border-radius:7px;padding:4px 8px}
+.lx-chip.t{background:#14b8a6;color:#04201c}.lx-chip.p{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
+.fc-price{font-size:.95rem;font-weight:700;color:#fff;background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:10px;padding:6px 11px;white-space:nowrap}
+.go{font-size:.84rem;font-weight:600;color:#f3dca2;white-space:nowrap}
+@media(max-width:699px){.fc-prod{flex-direction:row;align-items:stretch}.fc-prod .fc-m.fc-art{flex:0 0 96px;aspect-ratio:auto;min-height:118px;font-size:2.2rem}.fc-prod .pill{display:none}.fc-prod .fc-b{padding:12px 14px}.fc-prod .fc-b h3{font-size:1rem}.fc-prod .fc-b p{font-size:.82rem}}
 .lux-credit{font-size:.68rem;color:#8d887d;margin:0}.lux-credit a{color:#a9a294}
 /* entrance animations */
 .lx-a{opacity:0;transform:translateY(18px);animation:luxUp .9s cubic-bezier(.2,.7,.2,1) forwards}
 .lx-d1{animation-delay:.1s}.lx-d2{animation-delay:.25s}.lx-d3{animation-delay:.4s}.lx-d4{animation-delay:.55s}
 @keyframes luxUp{to{opacity:1;transform:none}}
 .lx-r{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}.lx-r.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.lux-slide,.lux-slide.on{animation:none;transform:none;transition:none}.lx-a,.lx-r{animation:none;opacity:1;transform:none;transition:none}.lux-btn::after,.lux-scroll span{animation:none}.vibe,.vibe img,.ht-get,.lux-btn{transition:none}}
+@media (prefers-reduced-motion:reduce){.lux-slide,.lux-slide.on{animation:none;transform:none;transition:none}.lx-a,.lx-r{animation:none;opacity:1;transform:none;transition:none}.lux-btn::after,.lux-scroll span{animation:none}.fc,.fc-m img,.lux-btn,.lux-toast{transition:none}}
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Nino Travel","url":"https://nino-travel.github.io/travel.html","description":"Search flights, hotels, cars, activities and eSIMs, then book with established travel partners."}</script>
@@ -131,61 +156,92 @@
 <section class="lux" id="hotels" aria-labelledby="lux-title">
   <div class="lux-slides" aria-hidden="true">
     <div class="lux-slide lux-first on"></div>
-    <div class="lux-slide" id="lux-s2" data-bg="/assets/hotels/hero-skyline-infinity.webp"></div>
+    <div class="lux-slide" data-bg="/assets/hotels/hero-skyline-infinity.webp"></div>
     <div class="lux-slide" data-bg="/assets/hotels/hero-ocean-suite.webp"></div>
     <div class="lux-slide" data-bg="/assets/hotels/hero-rooftop-pool.webp"></div>
     <div class="lux-slide" data-bg="/assets/hotels/hero-night-pool.webp"></div>
   </div>
   <div class="lux-in">
     <div>
-      <p class="lux-kicker lx-a">✦ Nino Travel · Luxury Stays</p>
+      <p class="lux-kicker lx-a">✦ Nino Travel · Book it all</p>
       <h1 id="lux-title" class="lx-a lx-d1">Stay Like a <em>Legend.</em></h1>
-      <p class="lux-sub lx-a lx-d2">Luxury hotels tonight, for less. Pools, suites &amp; rooftop views.</p>
+      <p class="lux-sub lx-a lx-d2">Luxury hotels tonight, for less. Plus flights &amp; cars, all in one place.</p>
       <div class="lux-dots lx-a lx-d2" role="group" aria-label="Hotel photos">
         <button class="on" aria-label="Photo 1"></button><button aria-label="Photo 2"></button><button aria-label="Photo 3"></button><button aria-label="Photo 4"></button><button aria-label="Photo 5"></button>
       </div>
     </div>
-    <form class="lux-card lx-a lx-d3" id="lux-form" novalidate>
-      <h2>Find your luxury stay</h2>
-      <div class="lux-g">
-        <div class="lux-f w"><label for="lx-dest">Where to?</label><input id="lx-dest" placeholder="Miami, Cancun, New York…" autocomplete="off" enterkeyhint="search"></div>
-        <div class="lux-f"><label for="lx-in">Check-in</label><input type="date" id="lx-in"></div>
-        <div class="lux-f"><label for="lx-out">Check-out</label><input type="date" id="lx-out"></div>
-        <div class="lux-f w"><label for="lx-guests">Guests</label><select id="lx-guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option></select></div>
-        <p class="lux-err" id="lx-err" role="alert"></p>
-        <button type="submit" class="lux-btn">Search Hotels <span aria-hidden="true">→</span></button>
-        <p class="lux-alt">Opens Booking.com · or <button type="button" id="lx-exp">compare on Expedia</button></p>
+    <div class="lux-card lx-a lx-d3">
+      <div class="lux-tabs" role="tablist" aria-label="What are you booking?">
+        <button type="button" class="lux-tab" role="tab" id="lt-hotels" aria-controls="lp-hotels" aria-selected="true">🏨 Hotels</button>
+        <button type="button" class="lux-tab" role="tab" id="lt-flights" aria-controls="lp-flights" aria-selected="false" tabindex="-1">✈️ Flights</button>
+        <button type="button" class="lux-tab" role="tab" id="lt-cars" aria-controls="lp-cars" aria-selected="false" tabindex="-1">🚗 Cars</button>
       </div>
-    </form>
+      <div class="lux-p" id="lp-hotels" role="tabpanel" aria-labelledby="lt-hotels">
+        <p class="lux-pitch"><b>Last-minute luxury deals</b> on suites, rooftops &amp; resorts, booked right in the HotelTonight app.</p>
+        <div class="lux-g">
+          <button type="button" class="lux-code" data-copy aria-label="Copy code RDAVIDSONKAY for $25 off"><span class="l">Use code for <b style="display:inline;font-family:inherit;letter-spacing:0;color:#5eead4;font-size:.78rem">$25 off</b><b>RDAVIDSONKAY</b></span><span class="t">Tap to copy</span></button>
+          <a class="lux-btn" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener">Find Hotels on HotelTonight <span aria-hidden="true">→</span></a>
+          <p class="lux-fine">Nino's referral code — Nino may earn a credit when you book. New HotelTonight users. Terms apply.</p>
+        </div>
+      </div>
+      <form class="lux-p" id="lp-flights" role="tabpanel" aria-labelledby="lt-flights" hidden novalidate>
+        <div class="lux-g">
+          <div class="lux-f"><label for="lx-from">From</label><input id="lx-from" data-ac autocomplete="off" value="Atlanta — ATL" data-code="ATL" placeholder="City or airport"></div>
+          <div class="lux-f"><label for="lx-to">To</label><input id="lx-to" data-ac autocomplete="off" placeholder="Miami, Cancun…"></div>
+          <div class="lux-f"><label for="lx-dep">Depart</label><input type="date" id="lx-dep"></div>
+          <div class="lux-f"><label for="lx-ret">Return <span style="text-transform:none;letter-spacing:0;opacity:.7">(optional)</span></label><input type="date" id="lx-ret"></div>
+          <div class="lux-f w"><label for="lx-trav">Travelers</label><select id="lx-trav"><option value="1">1 adult</option><option value="2">2 adults</option><option value="3">3 adults</option><option value="4">4 adults</option><option value="5">5 adults</option><option value="6">6 adults</option></select></div>
+          <p class="lux-err" id="lx-ferr" role="alert"></p>
+          <button type="submit" class="lux-btn">Search Flights <span aria-hidden="true">→</span></button>
+          <p class="lux-alt">Opens Aviasales · or <button type="button" id="lx-fexp">compare on Expedia</button></p>
+        </div>
+      </form>
+      <form class="lux-p" id="lp-cars" role="tabpanel" aria-labelledby="lt-cars" hidden novalidate>
+        <div class="lux-g">
+          <div class="lux-f w"><label for="lx-cloc">Pick-up location</label><input id="lx-cloc" autocomplete="off" placeholder="City or airport, e.g. Miami MIA"></div>
+          <div class="lux-f"><label for="lx-cpick">Pick-up</label><input type="date" id="lx-cpick"></div>
+          <div class="lux-f"><label for="lx-cdrop">Drop-off</label><input type="date" id="lx-cdrop"></div>
+          <p class="lux-err" id="lx-cerr" role="alert"></p>
+          <button type="submit" class="lux-btn">Search Cars <span aria-hidden="true">→</span></button>
+          <p class="lux-alt">Opens Expedia Cars · or <button type="button" id="lx-cdc">try Discover Cars</button></p>
+        </div>
+      </form>
+    </div>
   </div>
-  <a class="lux-scroll" href="#ht-promo">Explore<span></span></a>
+  <a class="lux-scroll" href="#perks">Explore<span></span></a>
 </section>
 
-<section class="lux-strip" aria-label="Hotel deals">
+<section class="lux-strip" aria-label="Hotel perks and Nino's travel picks">
   <div class="lux-wrap">
-    <div class="ht lx-r" id="ht-promo">
-      <div>
-        <span class="ht-badge">HotelTonight × Nino</span>
-        <h3>Get <b>$25 off</b> your first hotel</h3>
-        <p>Download HotelTonight and use Nino's code for last-minute luxury deals.</p>
-      </div>
-      <div class="ht-act">
-        <button type="button" class="ht-code" id="ht-code" aria-label="Copy code RDAVIDSONKAY"><span class="c">RDAVIDSONKAY</span><span class="t" id="ht-code-t">Tap to copy</span></button>
-        <a class="ht-get" id="ht-get" href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener"><span aria-hidden="true">⬇</span> Get the app</a>
-        <p class="ht-fine">Nino's referral code — Nino may earn a credit when you book. New HotelTonight users. Terms apply.</p>
-      </div>
+    <div class="perks lx-r" id="perks">
+      <div class="perks-top"><h2 class="lx-h"><small>Nino Perks</small>Your hotel perks</h2><span class="lx-chip">New users</span></div>
+      <a class="prow" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">💵</span><span class="tx"><strong>First hotel discount</strong><span>On HotelTonight with Nino's code</span></span><span class="v">$25 off</span></a>
+      <button type="button" class="prow" data-copy aria-label="Copy code RDAVIDSONKAY"><span class="ic p" aria-hidden="true">🎟️</span><span class="tx"><strong>Nino's code</strong><span data-copy-label>Tap to copy</span></span><span class="v g">RDAVIDSONKAY</span></button>
+      <a class="prow" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">📲</span><span class="tx"><strong>Get the app</strong><span>Free download, then enter the code</span></span><span class="v">→</span></a>
+      <p class="perks-fine">Nino's referral code — Nino may earn a credit when you book. New HotelTonight users. Terms apply.</p>
     </div>
-    <div class="vibes lx-r">
-      <h3><small>Pick a vibe</small>Where are we staying?</h3>
-      <div class="vibe-row">
-        <button type="button" class="vibe" data-vibe="Miami"><img src="/assets/hotels/vibe-miami.webp" alt="Rooftop hotel pool overlooking Miami towers" loading="lazy" width="720" height="480"><span><strong>Miami</strong><em>Rooftop pools &amp; city views</em></span></button>
-        <button type="button" class="vibe" data-vibe="New York"><img src="/assets/hotels/vibe-nyc.webp" alt="New York City skyline at night" loading="lazy" width="720" height="540"><span><strong>NYC Nights</strong><em>Skyline suites</em></span></button>
-        <button type="button" class="vibe" data-vibe="Cancun"><img src="/assets/hotels/vibe-cancun.webp" alt="Cancun beachfront resorts and turquoise sea" loading="lazy" width="720" height="540"><span><strong>Cancun Resorts</strong><em>Turquoise water, all-inclusive</em></span></button>
-      </div>
+    <h2 class="lx-h lx-r"><small>Tonight's picks</small>Luxury stays &amp; Nino's travel guides</h2>
+    <div class="feed">
+      <article class="fc lx-r"><div class="fc-m"><img src="/assets/hotels/vibe-miami.webp" alt="Rooftop hotel pool overlooking Miami towers" loading="lazy" width="720" height="480"><span class="pill">Popular</span><button type="button" class="heart" aria-pressed="false" aria-label="Save Miami"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C1 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 5.3 3 1.7-1.9 3.2-3 5.3-3 3.7 0 5.7 3.8 4.3 7.1C19.5 16.4 12 21 12 21z"/></svg></button></div><div class="fc-b"><h3><a class="fc-link" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener">Miami</a></h3><p>Rooftop · Miami</p><div class="fc-row"><span class="lx-chip t">Top pick</span><span class="go">See deals in app →</span></div></div></article>
+      <a class="fc fc-prod lx-r" data-stripe="guideBundle" href="#shop"><div class="fc-m fc-art"><span class="pill">Best value</span><span aria-hidden="true">🧳</span></div><div class="fc-b"><h3>Complete Travel Planning Bundle</h3><p>All 5 guides & printables in one download. Save $16.96.</p><div class="fc-row"><span class="lx-chip t">Bundle</span><span class="fc-price">$24.99</span></div></div></a>
+      <article class="fc lx-r"><div class="fc-m"><img src="/assets/hotels/card-singapore.webp" alt="Rooftop infinity pool above the Singapore skyline" loading="lazy" width="720" height="540"><span class="pill">Luxury</span><button type="button" class="heart" aria-pressed="false" aria-label="Save Singapore"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C1 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 5.3 3 1.7-1.9 3.2-3 5.3-3 3.7 0 5.7 3.8 4.3 7.1C19.5 16.4 12 21 12 21z"/></svg></button></div><div class="fc-b"><h3><a class="fc-link" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener">Singapore</a></h3><p>Infinity pool · Singapore</p><div class="fc-row"><span class="lx-chip p">Iconic</span><span class="go">See deals in app →</span></div></div></article>
+      <a class="fc fc-prod lx-r" data-stripe="flightHacksGuide" href="#shop"><div class="fc-m fc-art fc-alt"><span class="pill">PDF guide</span><span aria-hidden="true">✈️</span></div><div class="fc-b"><h3>Budget Flight Hacks Guide</h3><p>Flexible dates, nearby airports, bag-fee math & refund rights.</p><div class="fc-row"><span class="lx-chip t">Instant</span><span class="fc-price">$7.99</span></div></div></a>
+      <a class="fc fc-prod lx-r" data-stripe="delaySurvivalKit" href="#shop"><div class="fc-m fc-art"><span class="pill">PDF + checklists</span><span aria-hidden="true">⏱️</span></div><div class="fc-b"><h3>Delay Survival Kit</h3><p>Scripts, rebooking steps & a claim tracker for delays.</p><div class="fc-row"><span class="lx-chip t">Instant</span><span class="fc-price">$4.99</span></div></div></a>
+      <article class="fc lx-r"><div class="fc-m"><img src="/assets/hotels/vibe-cancun.webp" alt="Cancun beachfront resorts and turquoise sea" loading="lazy" width="720" height="540"><span class="pill">Popular</span><button type="button" class="heart" aria-pressed="false" aria-label="Save Cancun"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C1 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 5.3 3 1.7-1.9 3.2-3 5.3-3 3.7 0 5.7 3.8 4.3 7.1C19.5 16.4 12 21 12 21z"/></svg></button></div><div class="fc-b"><h3><a class="fc-link" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener">Cancun</a></h3><p>Beachfront · Cancun</p><div class="fc-row"><span class="lx-chip t">Trending</span><span class="go">See deals in app →</span></div></div></article>
+      <a class="fc fc-prod lx-r" data-stripe="premiumItinerary" href="#shop"><div class="fc-m fc-art fc-alt"><span class="pill">Quick start</span><span aria-hidden="true">🗺️</span></div><div class="fc-b"><h3>Premium Itinerary</h3><p>Day-by-day plan for a trip up to 5 days. PDF in 3 business days.</p><div class="fc-row"><span class="lx-chip t">Done for you</span><span class="fc-price">$9.99</span></div></div></a>
+      <article class="fc lx-r"><div class="fc-m"><img src="/assets/hotels/vibe-nyc.webp" alt="New York City skyline at night" loading="lazy" width="720" height="540"><span class="pill">Luxury</span><button type="button" class="heart" aria-pressed="false" aria-label="Save New York"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C1 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 5.3 3 1.7-1.9 3.2-3 5.3-3 3.7 0 5.7 3.8 4.3 7.1C19.5 16.4 12 21 12 21z"/></svg></button></div><div class="fc-b"><h3><a class="fc-link" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener">New York</a></h3><p>Skyline · New York</p><div class="fc-row"><span class="lx-chip p">City nights</span><span class="go">See deals in app →</span></div></div></article>
+      <a class="fc fc-prod lx-r" data-stripe="customTripPlan" href="#shop"><div class="fc-m fc-art"><span class="pill">1–2 travelers</span><span aria-hidden="true">✨</span></div><div class="fc-b"><h3>Personalized Trip Plan</h3><p>Destination ideas that fit your budget, plus the full plan.</p><div class="fc-row"><span class="lx-chip t">Done for you</span><span class="fc-price">$29.99</span></div></div></a>
+      <a class="fc fc-prod lx-r" data-stripe="familyTripPlan" href="#shop"><div class="fc-m fc-art fc-alt"><span class="pill">Up to 6 travelers</span><span aria-hidden="true">👨‍👩‍👧‍👦</span></div><div class="fc-b"><h3>Family Planning Package</h3><p>Kid-friendly trips up to 10 days with a full family budget.</p><div class="fc-row"><span class="lx-chip t">Done for you</span><span class="fc-price">$49.99</span></div></div></a>
+      <article class="fc lx-r"><div class="fc-m"><img src="/assets/hotels/card-dubai-rooftop.webp" alt="Rooftop hotel pool with Dubai skyline" loading="lazy" width="720" height="540"><span class="pill">Luxury</span><button type="button" class="heart" aria-pressed="false" aria-label="Save Dubai"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C1 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 5.3 3 1.7-1.9 3.2-3 5.3-3 3.7 0 5.7 3.8 4.3 7.1C19.5 16.4 12 21 12 21z"/></svg></button></div><div class="fc-b"><h3><a class="fc-link" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener">Dubai</a></h3><p>Rooftop pool · Dubai</p><div class="fc-row"><span class="lx-chip t">Skyline</span><span class="go">See deals in app →</span></div></div></article>
+      <a class="fc fc-prod lx-r" data-stripe="familyPackingKit" href="#shop"><div class="fc-m fc-art"><span class="pill">Printable PDF</span><span aria-hidden="true">🎒</span></div><div class="fc-b"><h3>Family Vacation Planner & Packing Kit</h3><p>Printable budget, itinerary & packing pages for everyone.</p><div class="fc-row"><span class="lx-chip t">Instant</span><span class="fc-price">$9.99</span></div></div></a>
+      <article class="fc lx-r"><div class="fc-m"><img src="/assets/hotels/card-resort.webp" alt="Resort infinity pool lined with palm trees" loading="lazy" width="720" height="540"><span class="pill">Popular</span><button type="button" class="heart" aria-pressed="false" aria-label="Save Resort Escapes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C1 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 5.3 3 1.7-1.9 3.2-3 5.3-3 3.7 0 5.7 3.8 4.3 7.1C19.5 16.4 12 21 12 21z"/></svg></button></div><div class="fc-b"><h3><a class="fc-link" data-ht href="https://apps.apple.com/app/id407690035" target="_blank" rel="noopener">Resort Escapes</a></h3><p>Infinity pool · Resort</p><div class="fc-row"><span class="lx-chip p">Escape</span><span class="go">See deals in app →</span></div></div></article>
+      <a class="fc fc-prod lx-r" data-stripe="cityGuides" href="#shop"><div class="fc-m fc-art fc-alt"><span class="pill">5 cities</span><span aria-hidden="true">🎮</span></div><div class="fc-b"><h3>Family & Gamer City Guides</h3><p>Orlando, Tokyo, LA, London & Atlanta for families and gamers.</p><div class="fc-row"><span class="lx-chip t">Instant</span><span class="fc-price">$12.99</span></div></div></a>
+      <a class="fc fc-prod lx-r" data-stripe="kidsActivityPack" href="#shop"><div class="fc-m fc-art"><span class="pill">Printable PDF</span><span aria-hidden="true">🖍️</span></div><div class="fc-b"><h3>Kids' Airport Activity Pack</h3><p>Coloring, bingo, mazes & a travel journal for little ones.</p><div class="fc-row"><span class="lx-chip t">Instant</span><span class="fc-price">$5.99</span></div></div></a>
     </div>
     <p class="lux-credit">Photos: Sokil, Ken Chuang, Denys Gromov, Ahmet ÇÖTÜR, Richard, Mineia Martins, Allen Boguslavsky &amp; Israel Torres via <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a>.</p>
   </div>
 </section>
+<div class="lux-toast" id="lux-toast" role="status" aria-live="polite"></div>
 
 
 <section class="hero" id="search" aria-labelledby="hero-title">
@@ -388,50 +444,67 @@
 </footer>
 <script src="/config.js" defer></script><script src="/app.js" defer></script>
 <script>
-/* Luxury hero: slideshow, search, promo copy, vibes */
+/* Luxury hero: slideshow, tabs, HotelTonight code + app link, flights/cars via the site's own search, feed */
 (function(){
-  var d=document,$=function(s){return d.querySelector(s)};
+  var d=document,$=function(s){return d.querySelector(s)},$$=function(s){return [].slice.call(d.querySelectorAll(s))};
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CODE='RDAVIDSONKAY',APP=/Android/i.test(navigator.userAgent)?'https://play.google.com/store/apps/details?id=com.hoteltonight.android.prod':'https://apps.apple.com/app/id407690035';
   // slideshow
-  var slides=[].slice.call(d.querySelectorAll('.lux-slide')),dots=[].slice.call(d.querySelectorAll('.lux-dots button')),cur=0,timer;
+  var slides=$$('.lux-slide'),dots=$$('.lux-dots button'),cur=0,timer;
   function load(el){var b=el.getAttribute('data-bg');if(b){el.style.backgroundImage="url('"+b+"')";el.removeAttribute('data-bg');}}
   function show(i){i=(i+slides.length)%slides.length;load(slides[i]);load(slides[(i+1)%slides.length]);
     slides.forEach(function(s,k){s.classList.toggle('on',k===i)});dots.forEach(function(b,k){b.classList.toggle('on',k===i)});cur=i;}
   function auto(){clearInterval(timer);if(!reduce)timer=setInterval(function(){show(cur+1)},6000);}
   window.addEventListener('load',function(){load(slides[1]);auto();});
   dots.forEach(function(b,k){b.addEventListener('click',function(){show(k);auto();})});
+  // tabs
+  var tabs=$$('.lux-tab');
+  function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;d.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(t)});t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var n=tabs[(i+k+tabs.length)%tabs.length];sel(n);n.focus();}});});
+  // toast + copy
+  var toast=$('#lux-toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},2600);}
+  function copy(){var ok=function(){$$('[data-copy]').forEach(function(c){c.classList.add('ok');var t=c.querySelector('.t,[data-copy-label]');if(t){t.setAttribute('data-was',t.getAttribute('data-was')||t.textContent);t.textContent='Copied! ✓';}});
+      setTimeout(function(){$$('[data-copy]').forEach(function(c){c.classList.remove('ok');var t=c.querySelector('[data-was]');if(t)t.textContent=t.getAttribute('data-was');});},2400);};
+    var fb=function(){var ta=d.createElement('textarea');ta.value=CODE;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';d.body.appendChild(ta);ta.select();ta.setSelectionRange(0,99);try{d.execCommand('copy');}catch(e){}d.body.removeChild(ta);};
+    try{if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(CODE).catch(fb);}else fb();}catch(e){fb();}ok();}
+  $$('[data-copy]').forEach(function(c){c.addEventListener('click',function(){copy();say('Code copied! Use '+CODE+' for $25 off');});});
+  // every hotel CTA: copy code, toast, open the HotelTonight app listing in a new tab
+  $$('[data-ht]').forEach(function(a){a.href=APP;a.addEventListener('click',function(e){e.preventDefault();copy();say('Code copied! Use '+CODE+' for $25 off');
+    var w=window.open(APP,'_blank','noopener');if(!w)setTimeout(function(){location.href=APP},900);});});
+  // hearts (saved on this device)
+  var saved={};try{saved=JSON.parse(localStorage.getItem('nvSaved')||'{}')}catch(e){}
+  $$('.heart').forEach(function(h){var k=h.getAttribute('aria-label');if(saved[k])h.setAttribute('aria-pressed','true');
+    h.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var on=h.getAttribute('aria-pressed')!=='true';h.setAttribute('aria-pressed',on);if(on)saved[k]=1;else delete saved[k];try{localStorage.setItem('nvSaved',JSON.stringify(saved))}catch(x){}say(on?'Saved ♥':'Removed');});});
   // dates
   function pad(n){return(n<10?'0':'')+n}function iso(x){return x.getFullYear()+'-'+pad(x.getMonth()+1)+'-'+pad(x.getDate())}
-  var t=new Date(),ci=$('#lx-in'),co=$('#lx-out');
-  ci.min=co.min=iso(t);ci.value=iso(new Date(t.getFullYear(),t.getMonth(),t.getDate()+7));co.value=iso(new Date(t.getFullYear(),t.getMonth(),t.getDate()+9));
-  ci.addEventListener('change',function(){if(co.value<=ci.value){var x=new Date(ci.value+'T12:00');x.setDate(x.getDate()+2);co.value=iso(x);}co.min=ci.value;});
-  // search: reuse the site's own hotel link builders (app.js / config.js) and sync the main hotel form
-  function opts(){var e=$('#lx-err');e.textContent='';var dest=$('#lx-dest').value.trim();
-    if(!dest){e.textContent='Where are you going? Enter a city or hotel name.';$('#lx-dest').focus();return null;}
-    if(!ci.value||!co.value||co.value<=ci.value){e.textContent='Choose a check-out date after check-in.';return null;}
-    var o={dest:dest,checkin:ci.value,checkout:co.value,adults:+$('#lx-guests').value||2,children:0,rooms:1};
-    var m={'#h-dest':o.dest,'#h-in':o.checkin,'#h-out':o.checkout,'#h-adults':String(Math.min(16,o.adults))};
-    Object.keys(m).forEach(function(k){var el=$(k);if(el)el.value=m[k];});return o;}
-  function go(kind){var o=opts();if(!o)return;var L=window.NV_LINKS;
-    if(!L){var t=d.getElementById('tab-hotels');if(t)t.click();location.hash='search';return;}
-    var url=kind==='exp'?L.expediaHotels(o):L.booking(o);var w=window.open(url,'_blank','noopener');if(!w)location.href=url;}
-  $('#lux-form').addEventListener('submit',function(e){e.preventDefault();go('bk');});
-  $('#lx-exp').addEventListener('click',function(){go('exp');});
-  // vibes prefill
-  [].forEach.call(d.querySelectorAll('[data-vibe]'),function(v){v.addEventListener('click',function(){
-    $('#lx-dest').value=v.getAttribute('data-vibe');$('#lx-err').textContent='';
-    $('#hotels').scrollIntoView({behavior:reduce?'auto':'smooth'});setTimeout(function(){$('.lux-btn').focus({preventScroll:true});},reduce?0:600);});});
-  // promo copy
-  var cb=$('#ht-code'),ct=$('#ht-code-t');
-  function done(){cb.classList.add('ok');ct.textContent='Copied! ✓';setTimeout(function(){cb.classList.remove('ok');ct.textContent='Tap to copy';},2200);}
-  function fallback(){var ta=d.createElement('textarea');ta.value='RDAVIDSONKAY';ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';d.body.appendChild(ta);ta.select();ta.setSelectionRange(0,99);try{d.execCommand('copy');}catch(e){}d.body.removeChild(ta);done();}
-  cb.addEventListener('click',function(){if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText('RDAVIDSONKAY').then(done,fallback);}else fallback();});
-  // Android -> verified Play Store listing
-  if(/Android/i.test(navigator.userAgent))$('#ht-get').href='https://play.google.com/store/apps/details?id=com.hoteltonight.android.prod';
+  function plus(n){var t=new Date();t.setDate(t.getDate()+n);return iso(t)}
+  [['#lx-dep',21,'#lx-ret',28],['#lx-cpick',21,'#lx-cdrop',24]].forEach(function(p){var a=$(p[0]),b=$(p[2]);a.value=plus(p[1]);b.value=plus(p[3]);
+    a.addEventListener('change',function(){b.min=a.value;if(b.value&&b.value<=a.value){var x=new Date(a.value+'T12:00');x.setDate(x.getDate()+3);b.value=iso(x);}});});
+  // flights -> the page's existing flight search (#panel-flights / app.js)
+  function setv(id,v){var el=$(id);if(el)el.value=v;return el;}
+  function flights(btn){var e=$('#lx-ferr');e.textContent='';var to=$('#lx-to'),fr=$('#lx-from');
+    if(!fr.value.trim()||!to.value.trim()){e.textContent='Where are you flying from and to?';return;}
+    if(!$('#lx-dep').value){e.textContent='Pick a departure date.';return;}
+    var ret=$('#lx-ret').value;if(ret&&ret<=$('#lx-dep').value){e.textContent='Return must be after departure.';return;}
+    [[fr,'#f-from'],[to,'#f-to']].forEach(function(p){var t=setv(p[1],p[0].value);if(t){if(p[0].dataset.code)t.dataset.code=p[0].dataset.code;else delete t.dataset.code;}});
+    setv('#f-depart',$('#lx-dep').value);setv('#f-return',ret);setv('#f-adults',$('#lx-trav').value);setv('#f-children','0');setv('#f-infants','0');
+    var r=d.querySelector('input[name="trip"][value="'+(ret?'round':'oneway')+'"]');if(r){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}));setv('#f-return',ret);}
+    var b=$(btn);if(!b){location.hash='search';return;}b.click();
+    setTimeout(function(){var pe=$('#panel-flights .err');if(pe&&pe.textContent)e.textContent=pe.textContent;},1500);}
+  $('#lp-flights').addEventListener('submit',function(ev){ev.preventDefault();flights('#btn-flights');});
+  $('#lx-fexp').addEventListener('click',function(){flights('#btn-flights-alt');});
+  // cars -> the page's existing car search (Expedia / Discover Cars via config.js)
+  $('#lp-cars').addEventListener('submit',function(ev){ev.preventDefault();var e=$('#lx-cerr');e.textContent='';
+    var loc=$('#lx-cloc').value.trim(),a=$('#lx-cpick').value,b=$('#lx-cdrop').value;
+    if(!loc){e.textContent='Enter a pick-up city or airport.';return;}
+    if(!a||!b||b<=a){e.textContent='Choose a drop-off date after pick-up.';return;}
+    setv('#c-loc',loc);setv('#c-pick',a);setv('#c-drop',b);var btn=$('#btn-cars');if(btn)btn.click();else location.hash='search';});
+  $('#lx-cdc').addEventListener('click',function(){var b=$('#btn-cars-alt');if(b)b.click();});
   // reveal on scroll
-  var rs=[].slice.call(d.querySelectorAll('.lx-r'));
+  var rs=$$('.lx-r');
   if(reduce||!('IntersectionObserver' in window)){rs.forEach(function(r){r.classList.add('in')});}
-  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});rs.forEach(function(r){io.observe(r)});}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});rs.forEach(function(r){io.observe(r)});}
 })();
 </script>
 </body>

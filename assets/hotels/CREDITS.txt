@@ -19,3 +19,8 @@ vibe-nyc.webp            "Stunning Night View of New York City Skyline" - Allen 
                          https://www.pexels.com/photo/stunning-night-view-of-new-york-city-skyline-30532241/
 vibe-cancun.webp         "Hotels and Resorts on Sea Coast in Cancun" - Israel Torres
                          https://www.pexels.com/photo/hotels-and-resorts-on-sea-coast-in-cancun-20210508/
+
+Card-size crops (720x540) of the photos above:
+card-singapore.webp      from hero-skyline-infinity (Ken Chuang)
+card-dubai-rooftop.webp  from hero-rooftop-pool (Richard)
+card-resort.webp         from hero-infinity-pool (Sokil)
