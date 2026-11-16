@@ -50,6 +50,12 @@ textarea{min-height:84px;resize:vertical;display:block}
 .bprev{height:24px;display:flex;align-items:center;padding:0 10px;margin-bottom:10px;border-radius:8px;background:linear-gradient(90deg,#fffaf0,#fff6e0);box-shadow:inset 3px 0 0 #d4a537;color:#5b4a1e;font-size:.72rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bprev.off{background:#f2f2f7;box-shadow:none;color:#8e8e93;font-weight:500}
 .sr{position:absolute;left:-9999px}
+.eoe{color:#8e8e93;font-size:.86rem;margin:4px 0}
+.eor{border:1px solid #ececf1;border-radius:14px;padding:10px 12px;margin-top:8px}
+.eor .em{font-weight:700;font-size:.9rem;word-break:break-all}
+.eor .sub{color:#8e8e93;font-size:.76rem;margin:2px 0 8px}
+.eor .ok{color:#1a8f3c;font-weight:700}.eor .no{color:#d70015;font-weight:700}
+.eor .acts{display:flex;gap:6px;flex-wrap:wrap}
 </style></head>
 <body><div class="wrap">
 <div class="brand"><div class="av"><span>N</span></div><div><b>Text Nino</b><small>Owner sign-in</small></div></div>
@@ -77,6 +83,9 @@ textarea{min-height:84px;resize:vertical;display:block}
 <label for="bt" class="sr">Banner text</label><input type="text" id="bt" maxlength="90" placeholder="e.g. 🎉 @name just purchased a Follow Back" autocomplete="off">
 <div class="bar"><span class="cnt" id="bcnt">0/90</span><span><button class="btn sm ghost" id="bc" type="button">Clear</button> <button class="btn sm" id="bs" type="button">Save banner</button></span></div>
 <div class="msg" id="bm" role="status"></div></div>
+<div class="card eo"><h2 class="bh">📘 E-book orders <small id="eos"></small></h2>
+<div id="eol"><p class="eoe">Loading…</p></div>
+<div class="bar" style="margin-top:10px"><span class="cnt" id="eom"></span><button class="btn sm ghost" id="eot" type="button">Send me a test email</button></div></div>
 <div class="list"><h2>Recent texts <small id="ls"></small></h2><div id="list"></div></div>
 </section>
 
@@ -133,4 +142,16 @@ bt.addEventListener("input",function(){prev(bt.value.trim())});
 bs.onclick=function(){save(bt.value.replace(/\s+/g," ").trim())};
 bc.onclick=function(){if(confirm("Remove the pinned banner from the wall?")){bt.value="";save("")}};
 load();setInterval(function(){if(!document.hidden&&!$("app").hidden)load()},30000)})();</script>
+<script>(function(){var API="https://nino-wall.yssn-nino.workers.dev",K="nino_owner_token",$=function(i){return document.getElementById(i)};var L=$("eol");if(!L)return;
+function tok(){try{return localStorage.getItem(K)||sessionStorage.getItem(K)}catch(e){return null}}
+function esc(t){var d=document.createElement("div");d.textContent=t==null?"":String(t);return d.innerHTML}
+function when(s){return new Date(s*1000).toLocaleString(undefined,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})}
+function load(){var t=tok();if(!t||$("app").hidden)return;fetch(API+"/owner/orders",{headers:{Authorization:"Bearer "+t},cache:"no-store"}).then(function(r){return r.json().then(function(j){return{s:r.status,j:j}})}).then(function(x){if(x.s!==200){L.innerHTML='<p class="eoe">Sign in again to see orders.</p>';return}var o=x.j.orders||[];$("eos").textContent=o.length?o.length+" total":"";if(!x.j.email_enabled)$("eom").textContent="Email not set up";
+if(!o.length){L.innerHTML='<p class="eoe">No e-book orders yet. They show up here the moment someone buys.</p>';return}
+L.innerHTML="";o.forEach(function(r){var d=document.createElement("div");d.className="eor";d.innerHTML='<div class="em">'+esc(r.email||"(no email)")+'</div><div class="sub">'+when(r.created_at)+" · $"+(r.amount/100).toFixed(2)+" · "+(r.emailed?'<span class="ok">Emailed ✓</span>':'<span class="no">Not emailed</span>')+" · "+(r.downloads||0)+" opens"+(r.email_error&&!r.emailed?'<br>'+esc(r.email_error):"")+'</div><div class="acts"><button class="btn sm rep" type="button" data-a="copy">Copy link</button><button class="btn sm ghost" type="button" data-a="resend">Resend email</button></div>';
+d.querySelector('[data-a=copy]').onclick=function(){var b=this;function ok(){b.textContent="Copied ✓";setTimeout(function(){b.textContent="Copy link"},1800)}if(navigator.clipboard)navigator.clipboard.writeText(r.page_url).then(ok,function(){prompt("Buyer link:",r.page_url)});else prompt("Buyer link:",r.page_url)};
+d.querySelector('[data-a=resend]').onclick=function(){var b=this;if(!confirm("Email the e-book link to "+r.email+" again?"))return;b.disabled=true;b.textContent="Sending…";fetch(API+"/owner/orders/resend",{method:"POST",headers:{Authorization:"Bearer "+tok(),"Content-Type":"application/json"},body:JSON.stringify({session_id:r.session_id})}).then(function(x){return x.json()}).then(function(j){b.textContent=j.ok?"Sent ✓":"Failed";if(!j.ok)alert(j.error||"Couldn't send");setTimeout(load,1500)}).catch(function(){b.textContent="Failed"}).then(function(){b.disabled=false})};
+L.appendChild(d)})}).catch(function(){})}
+$("eot").onclick=function(){var b=this;b.disabled=true;$("eom").textContent="Sending…";fetch(API+"/owner/email-test",{method:"POST",headers:{Authorization:"Bearer "+tok()}}).then(function(r){return r.json()}).then(function(j){$("eom").textContent=j.ok?"Test sent to yssnino@gmail.com ✓":(j.error||"Couldn't send")}).catch(function(){$("eom").textContent="Couldn't reach the server"}).then(function(){b.disabled=false})};
+new MutationObserver(function(){if(!$("app").hidden)load()}).observe($("app"),{attributes:true,attributeFilter:["hidden"]});load();setInterval(function(){if(!document.hidden)load()},60000)})();</script>
 </body></html>
