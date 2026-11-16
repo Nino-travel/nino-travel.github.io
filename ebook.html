@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Your e-book — The Yssn Nino Growth System</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#070b1d">
+<style>
+:root{--bg:#070b1d;--card:#0f1636;--line:rgba(255,255,255,.09);--gold:#f5c542;--gold2:#ffdd7a;--txt:#eef1ff;--mut:#a9b2da;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(60% 40% at 85% 0%,rgba(37,150,190,.22),transparent 70%),radial-gradient(60% 40% at 0% 100%,rgba(245,197,66,.10),transparent 70%),var(--bg);color:var(--txt);font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:480px;margin:0 auto;padding:22px 18px 40px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#dfe4ff;font-weight:800;margin-bottom:18px}
+.brand i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#FE2C55,#25F4EE);font-style:normal;color:#fff;font-size:.82rem}
+.card{background:linear-gradient(180deg,rgba(15,22,54,.95),rgba(11,16,42,.95));border:1px solid var(--line);border-radius:24px;padding:24px 20px;box-shadow:0 30px 60px rgba(0,0,0,.45);text-align:center;animation:in .5s var(--ease) both}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.cov{width:150px;margin:2px auto 18px;border-radius:10px;overflow:hidden;box-shadow:0 22px 44px rgba(0,0,0,.55),0 0 0 1px rgba(245,197,66,.55);transform:rotate(-3deg)}
+.cov img{display:block;width:100%;height:auto;aspect-ratio:1190/1684}
+.kick{display:inline-block;background:var(--gold);color:#0b0f24;font-weight:800;font-size:.66rem;letter-spacing:.16em;padding:6px 10px;border-radius:7px}
+h1{font-size:1.65rem;line-height:1.1;margin:14px 0 8px;font-weight:900}
+h1 span{color:var(--gold2)}
+p{color:var(--mut);margin:0 0 14px}
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;height:54px;border-radius:999px;text-decoration:none;font-weight:900;font-size:1.02rem;border:0;cursor:pointer;font-family:inherit;margin-top:10px;transition:transform .2s var(--ease)}
+.btn:active{transform:scale(.98)}
+.gold{color:#0b0f24;background:linear-gradient(180deg,#ffe28a,var(--gold) 50%,#e9b22a);box-shadow:0 12px 28px rgba(245,197,66,.25),inset 0 1px 0 rgba(255,255,255,.6)}
+.ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.14)}
+.tip{margin-top:18px;text-align:left;background:rgba(245,197,66,.08);border:1px solid rgba(245,197,66,.3);border-radius:16px;padding:13px 14px;font-size:.88rem;color:#e9e3c9}
+.tip b{color:var(--gold2)}
+.tip button{margin-top:9px;background:transparent;border:1px solid rgba(245,197,66,.55);color:var(--gold2);font:700 .8rem/1 inherit;padding:8px 12px;border-radius:999px;cursor:pointer}
+.meta{font-size:.78rem;color:#7f88b5;margin-top:14px}
+.spin{width:44px;height:44px;border-radius:50%;border:3px solid rgba(245,197,66,.2);border-top-color:var(--gold);margin:8px auto 16px;animation:sp 0.9s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.st[hidden]{display:none}
+.foot{text-align:center;font-size:.8rem;color:#7f88b5;margin-top:18px}.foot a{color:#b9c2ea}
+@media (prefers-reduced-motion:reduce){.card{animation:none}.spin{animation-duration:3s}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="w">
+<a class="brand" href="/find-nino.html"><i>N</i>Yssn Nino</a>
+<div class="card">
+<div class="cov"><img src="https://nino-wall.yssn-nino.workers.dev/assets/growth/cover-600.webp" width="600" height="849" alt="The Yssn Nino Growth System cover"></div>
+<div class="st" id="s-load"><div class="spin" aria-hidden="true"></div><h1>Confirming your purchase…</h1><p id="lmsg">This only takes a few seconds.</p></div>
+<div class="st" id="s-ok" hidden>
+<span class="kick">YOUR E-BOOK IS READY</span>
+<h1>The Yssn Nino <span>Growth</span> System</h1>
+<p>Thank you for your purchase! Read it now or save the PDF to your phone.</p>
+<a class="btn gold" id="read" href="#">📖 Read now</a>
+<a class="btn ghost" id="dl" href="#">⬇️ Download PDF</a>
+<div class="tip"><b>Bookmark this page.</b> It is your private link to the e-book, so you can download your copy again anytime.<br><button type="button" id="copy">Copy my e-book link</button></div>
+<div class="meta" id="meta"></div>
+</div>
+<div class="st" id="s-wait" hidden><h1>Almost there</h1><p>We are still confirming your payment with Stripe. This page will update by itself. You can also refresh in a minute.</p><button class="btn ghost" type="button" id="retry">Check again</button><p class="meta">Paid but still stuck? DM @yssn_nino1 on TikTok with the email you used at checkout.</p></div>
+<div class="st" id="s-bad" hidden><h1>We could not find this order</h1><p id="bmsg">This e-book link is not valid. Please use the link from your purchase.</p><a class="btn gold" href="/growth.html">See the e-book</a></div>
+</div>
+<p class="foot"><a href="/growth.html">The Yssn Nino Growth System</a> · <a href="/find-nino.html">yssn-nino.com</a></p>
+</div>
+<script>(function(){
+var API="https://nino-wall.yssn-nino.workers.dev",q=new URLSearchParams(location.search),sid=q.get("session_id")||"",k=q.get("k")||"",d=null,tries=0,timer=0;
+function $(i){return document.getElementById(i)}
+function show(id){["s-load","s-ok","s-wait","s-bad"].forEach(function(x){$(x).hidden=x!==id})}
+function bad(m){show("s-bad");if(m)$("bmsg").textContent=m}
+if(!/^cs_(live|test)_[A-Za-z0-9]{10,120}$/.test(sid)){bad();return}
+function check(){tries++;fetch(API+"/ebook/session?session_id="+encodeURIComponent(sid)+(k?"&k="+encodeURIComponent(k):""),{cache:"no-store"}).then(function(r){return r.json().then(function(j){return{s:r.status,j:j}})}).then(function(x){
+if(x.s===200&&x.j.paid){d=x.j;ready();return}
+if(x.s===404&&x.j.pending){if(tries<=20){$("lmsg").textContent=tries>3?"Waiting for Stripe to confirm your payment…":"This only takes a few seconds.";timer=setTimeout(check,tries<6?1500:3000)}else show("s-wait");return}
+bad(x.j.error==="Invalid order link"?"This e-book link is not valid. Please use the link from your purchase.":null)}).catch(function(){if(tries<=20)timer=setTimeout(check,3000);else show("s-wait")})}
+function fresh(cb){if(d&&d.expires-90>Date.now()/1000){cb();return}fetch(API+"/ebook/session?session_id="+encodeURIComponent(sid)+(k?"&k="+encodeURIComponent(k):""),{cache:"no-store"}).then(function(r){return r.json()}).then(function(j){if(j.paid){d=j;cb()}})}
+function ready(){show("s-ok");$("read").href=d.read_url;$("dl").href=d.download_url;
+try{if(d.page_url){var u=new URL(d.page_url);history.replaceState(null,"",u.pathname+u.search)}}catch(e){}
+var when=d.purchased_at?new Date(d.purchased_at*1000).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}):"";$("meta").textContent=(d.email?"Purchased with "+d.email:"")+(when?" · "+when:"")}
+["read","dl"].forEach(function(id){$(id).addEventListener("click",function(e){if(d&&d.expires-90>Date.now()/1000)return;e.preventDefault();fresh(function(){location.href=id==="read"?d.read_url:d.download_url})})});
+$("copy").onclick=function(){var t=(d&&d.page_url)||location.href,b=this;function ok(){b.textContent="Link copied ✓";setTimeout(function(){b.textContent="Copy my e-book link"},2000)}if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,function(){prompt("Copy your link:",t)});else prompt("Copy your link:",t)};
+$("retry").onclick=function(){tries=0;show("s-load");check()};
+check()})();</script>
+</body>
+</html>
