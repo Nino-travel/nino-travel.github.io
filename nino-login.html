@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#16213e">
+<title>Nino sign in</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#16213e 0,#1f2b52 230px,#f5f3ee 230px);color:#111;min-height:100vh;padding:calc(18px + env(safe-area-inset-top)) 14px calc(28px + env(safe-area-inset-bottom))}
+.wrap{max-width:460px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;margin:4px 2px 16px}
+.av{width:44px;height:44px;border-radius:50%;background:conic-gradient(from 0deg,#f2c14e,#e76f51,#2a9d8f,#f2c14e);display:grid;place-items:center;padding:3px}
+.av span{width:100%;height:100%;border-radius:50%;background:#16213e;display:grid;place-items:center;font-weight:800;font-size:1.05rem}
+.brand b{display:block;font-size:1.05rem}.brand small{opacity:.7;font-size:.78rem}
+.card{background:#fff;border-radius:20px;padding:18px 16px;box-shadow:0 10px 30px rgba(22,33,62,.18);margin-bottom:14px}
+h1{font-size:1.25rem;margin:0 0 4px}.sub{color:#6e6e73;font-size:.85rem;margin:0 0 14px}
+label{display:block;font-size:.74rem;font-weight:700;color:#6e6e73;text-transform:uppercase;letter-spacing:.03em;margin:12px 0 6px}
+.f{position:relative}
+input[type=text],input[type=password],textarea{width:100%;font:inherit;font-size:16px;color:#111;background:#fafafa;border:1.5px solid #e5e5ea;border-radius:13px;padding:11px 13px;outline:none;transition:border-color .15s,background .15s}
+input:focus,textarea:focus{border-color:#0a84ff;background:#fff}
+.eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;color:#0a84ff;font:600 .8rem inherit;font-family:inherit;padding:8px;cursor:pointer}
+.chk{display:flex;align-items:center;gap:8px;margin:14px 0 4px;font-size:.88rem;color:#333;cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:#0a84ff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:42px;padding:0 18px;border:0;border-radius:21px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-family:inherit;font-weight:700;font-size:.92rem;cursor:pointer;box-shadow:0 6px 16px rgba(10,132,255,.3);transition:transform .12s,opacity .15s}
+.btn:active{transform:scale(.97)}.btn:disabled{opacity:.45;cursor:default}
+.btn.full{width:100%;margin-top:12px}
+.btn.ghost{background:#f2f2f7;color:#333;box-shadow:none;height:34px;font-size:.8rem;padding:0 12px}
+.btn.sm{height:30px;font-size:.76rem;padding:0 11px;box-shadow:none}
+.btn.rep{background:#e5f1ff;color:#0a64d6}.btn.del{background:#fff0f0;color:#d70015}
+.msg{font-size:.84rem;min-height:1.2em;margin-top:10px}.msg.err{color:#d70015}.msg.ok{color:#1a7f37}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.who{display:flex;align-items:center;gap:5px;color:#0a84ff;font-weight:700;font-size:.92rem}
+.ck{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:50%;background:#0a84ff;color:#fff;font-size:9px;font-weight:800}
+.chip{display:none;align-items:center;gap:6px;background:#e5f1ff;color:#0a64d6;border-radius:12px;padding:6px 10px;font-size:.8rem;margin-bottom:8px;max-width:100%}
+.chip.on{display:flex}.chip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.chip button{border:0;background:none;color:#0a64d6;font-size:.95rem;cursor:pointer;padding:0 2px}
+textarea{min-height:84px;resize:vertical;display:block}
+.bar{display:flex;justify-content:space-between;align-items:center;margin-top:8px}.cnt{color:#8e8e93;font-size:.76rem}
+.list h2{font-size:1rem;margin:4px 2px 8px;display:flex;justify-content:space-between;align-items:center}.list h2 small{font-weight:500;color:#8e8e93;font-size:.75rem}
+.m{background:#fff;border-radius:16px;padding:11px 12px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.m.n{background:#eaf3ff}
+.mh{display:flex;justify-content:space-between;gap:8px;font-size:.74rem;color:#8e8e93;margin-bottom:3px}
+.mh b{color:#333}.m.n .mh b{color:#0a84ff}
+.mq{font-size:.72rem;color:#6e6e73;border-left:2px solid #c7c7cc;padding-left:7px;margin:2px 0 4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mt{font-size:.92rem;overflow-wrap:anywhere}
+.ma{display:flex;gap:6px;justify-content:flex-end;margin-top:8px}
+.foot{text-align:center;color:#8e8e93;font-size:.74rem;margin-top:16px}
+.foot a{color:#0a84ff;text-decoration:none}
+[hidden]{display:none!important}
+</style></head>
+<body><div class="wrap">
+<div class="brand"><div class="av"><span>N</span></div><div><b>Text Nino</b><small>Owner sign-in</small></div></div>
+
+<section id="login" class="card" hidden>
+<h1>Sign in</h1><p class="sub">Reply to fans on your wall as @yssn_nino1 ✓</p>
+<form id="lf" autocomplete="on">
+<label for="lu">Username</label><input id="lu" type="text" name="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="yssn_nino1" required>
+<label for="lp">Password</label><div class="f"><input id="lp" type="password" name="password" autocomplete="current-password" placeholder="Password" required><button class="eye" type="button" id="eye" aria-label="Show password">Show</button></div>
+<label class="chk"><input type="checkbox" id="rem" checked> Stay signed in (30 days)</label>
+<button class="btn full" id="lb" type="submit">Sign in</button>
+<div class="msg" id="lm" role="alert"></div>
+</form></section>
+
+<section id="app" hidden>
+<div class="card">
+<div class="top"><div class="who">@yssn_nino1 <span class="ck">✓</span></div><button class="btn ghost" id="out" type="button">Sign out</button></div>
+<div class="chip" id="chip"><span id="chipt"></span><button type="button" id="chipx" aria-label="Cancel reply">✕</button></div>
+<form id="pf"><textarea id="pt" maxlength="300" placeholder="Write to your fans…"></textarea>
+<div class="bar"><span class="cnt" id="cnt">0/300</span><button class="btn" id="pb" type="submit" disabled>Send</button></div>
+<div class="msg" id="pm" role="status"></div></form>
+</div>
+<div class="list"><h2>Recent texts <small id="ls"></small></h2><div id="list"></div></div>
+</section>
+
+<p class="foot"><a href="/">← Back to yssn-nino.com</a></p>
+</div>
+<script>(function(){
+var API="https://nino-wall.yssn-nino.workers.dev",K="nino_owner_token";
+var $=function(id){return document.getElementById(id)};
+var login=$("login"),app=$("app"),lf=$("lf"),lu=$("lu"),lp=$("lp"),lb=$("lb"),lm=$("lm"),rem=$("rem"),pf=$("pf"),pt=$("pt"),pb=$("pb"),pm=$("pm"),cnt=$("cnt"),list=$("list"),ls=$("ls"),chip=$("chip"),chipt=$("chipt");
+var replyTo=null,busy=false,pollT=0,msgs={};
+function getTok(){try{return localStorage.getItem(K)||sessionStorage.getItem(K)}catch(e){return null}}
+function setTok(t,keep){try{localStorage.removeItem(K);sessionStorage.removeItem(K);(keep?localStorage:sessionStorage).setItem(K,t)}catch(e){}}
+function clearTok(){try{localStorage.removeItem(K);sessionStorage.removeItem(K)}catch(e){}}
+function tokValid(t){if(!t)return false;try{var p=JSON.parse(atob(t.split(".")[0].replace(/-/g,"+").replace(/_/g,"/")));return p.u==="yssn_nino1"&&p.exp*1000>Date.now()}catch(e){return false}}
+function show(signed){login.hidden=signed;app.hidden=!signed;if(signed){load();clearInterval(pollT);pollT=setInterval(function(){if(!document.hidden)load()},15000)}else{clearInterval(pollT);setTimeout(function(){lu.focus()},50)}}
+function say(el,t,ok){el.className="msg "+(ok?"ok":"err");el.textContent=t}
+$("eye").onclick=function(){var s=lp.type==="password";lp.type=s?"text":"password";this.textContent=s?"Hide":"Show";this.setAttribute("aria-label",s?"Hide password":"Show password")};
+lf.addEventListener("submit",function(e){e.preventDefault();if(busy)return;busy=true;lb.disabled=true;lb.textContent="Signing in…";say(lm,"",true);
+fetch(API+"/owner/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:lu.value.trim(),password:lp.value,remember:rem.checked})}).then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d}})}).then(function(x){
+if(!x.ok||!x.d.token){say(lm,x.d.error||"Couldn't sign in.",false);return}
+setTok(x.d.token,rem.checked);lp.value="";show(true)}).catch(function(){say(lm,"Couldn't reach the server. Check your connection.",false)}).then(function(){busy=false;lb.disabled=false;lb.textContent="Sign in"})});
+$("out").onclick=function(){clearTok();replyTo=null;chip.classList.remove("on");show(false)};
+function signedOut(){clearTok();show(false);say(lm,"You were signed out. Please sign in again.",false)}
+function upd(){cnt.textContent=pt.value.length+"/300";pb.disabled=busy||!pt.value.trim()}
+pt.addEventListener("input",upd);
+function setReply(m){replyTo=m?m.id:null;if(m){chipt.textContent="Replying to @"+m.username+": "+m.text;chip.classList.add("on");if(!/^@/.test(pt.value))pt.value="@"+m.username+" "+pt.value;window.scrollTo({top:0,behavior:"smooth"});pt.focus();pt.setSelectionRange(pt.value.length,pt.value.length)}else chip.classList.remove("on");upd()}
+$("chipx").onclick=function(){if(replyTo&&msgs[replyTo]){var pre="@"+msgs[replyTo].username+" ";if(pt.value.indexOf(pre)===0)pt.value=pt.value.slice(pre.length)}setReply(null)};
+pf.addEventListener("submit",function(e){e.preventDefault();var t=getTok();if(!tokValid(t)){signedOut();return}var text=pt.value.replace(/\s+/g," ").trim();if(!text)return;busy=true;upd();say(pm,"Sending…",true);
+fetch(API+"/owner/post",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+t},body:JSON.stringify({text:text,reply_to:replyTo})}).then(function(r){return r.json().then(function(d){return{ok:r.ok,s:r.status,d:d}})}).then(function(x){
+if(x.s===401){signedOut();return}if(!x.ok){say(pm,x.d.error||"Couldn't send.",false);return}
+pt.value="";setReply(null);say(pm,"Sent ✓ It's live on your wall.",true);load()}).catch(function(){say(pm,"Couldn't send. Check your connection.",false)}).then(function(){busy=false;upd()})});
+function ago(t){var d=Math.max(0,Date.now()/1000-t);if(d<60)return"now";if(d<3600)return Math.floor(d/60)+"m";if(d<86400)return Math.floor(d/3600)+"h";return Math.floor(d/86400)+"d"}
+function load(){fetch(API+"/messages?limit=60",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){var ms=d.messages||[];msgs={};ms.forEach(function(m){msgs[m.id]=m});list.textContent="";ls.textContent=ms.length+" on the wall";
+ms.slice().reverse().forEach(function(m){var n=m.is_nino==1,row=document.createElement("div");row.className="m"+(n?" n":"");
+var h=document.createElement("div");h.className="mh";var b=document.createElement("b");b.textContent=n?"@yssn_nino1 ✓ (you)":"@"+m.username;var tm=document.createElement("span");tm.textContent=ago(m.created_at);h.appendChild(b);h.appendChild(tm);row.appendChild(h);
+if(n&&m.reply_to&&msgs[m.reply_to]){var q=document.createElement("div");q.className="mq";q.textContent="↩ @"+msgs[m.reply_to].username+": "+msgs[m.reply_to].text;row.appendChild(q)}
+var t=document.createElement("div");t.className="mt";t.textContent=m.text;row.appendChild(t);
+if(m.reactions){var rk=Object.keys(m.reactions);if(rk.length){var rc=document.createElement("div");rc.className="mh";rc.style.margin="4px 0 0";rc.textContent=rk.map(function(e){return e+" "+m.reactions[e]}).join("  ");row.appendChild(rc)}}
+var a=document.createElement("div");a.className="ma";
+if(!n){var rp=document.createElement("button");rp.type="button";rp.className="btn sm rep";rp.textContent="Reply";rp.onclick=function(){setReply(m)};a.appendChild(rp)}
+var dl=document.createElement("button");dl.type="button";dl.className="btn sm del";dl.textContent="Delete";dl.onclick=function(){if(!confirm("Delete this message from your wall?"))return;var tk=getTok();if(!tokValid(tk)){signedOut();return}
+fetch(API+"/messages/"+m.id,{method:"DELETE",headers:{"Authorization":"Bearer "+tk}}).then(function(r){if(r.status===401){signedOut();return}return r.json().then(function(j){if(!r.ok)throw j.error||"Error";row.remove()})}).catch(function(e){alert("Delete failed: "+e)})};a.appendChild(dl);
+row.appendChild(a);list.appendChild(row)})}).catch(function(){ls.textContent="Couldn't load texts"})}
+var t0=getTok();if(t0&&!tokValid(t0))clearTok();show(tokValid(getTok()));
+})();</script>
+</body></html>
