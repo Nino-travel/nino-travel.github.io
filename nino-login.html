@@ -46,6 +46,10 @@ textarea{min-height:84px;resize:vertical;display:block}
 .foot{text-align:center;color:#8e8e93;font-size:.74rem;margin-top:16px}
 .foot a{color:#0a84ff;text-decoration:none}
 [hidden]{display:none!important}
+.bh{font-size:.95rem;margin:0 0 10px;display:flex;align-items:baseline;gap:8px}.bh small{color:#8e8e93;font-weight:500;font-size:.74rem}
+.bprev{height:24px;display:flex;align-items:center;padding:0 10px;margin-bottom:10px;border-radius:8px;background:linear-gradient(90deg,#fffaf0,#fff6e0);box-shadow:inset 3px 0 0 #d4a537;color:#5b4a1e;font-size:.72rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bprev.off{background:#f2f2f7;box-shadow:none;color:#8e8e93;font-weight:500}
+.sr{position:absolute;left:-9999px}
 </style></head>
 <body><div class="wrap">
 <div class="brand"><div class="av"><span>N</span></div><div><b>Text Nino</b><small>Owner sign-in</small></div></div>
@@ -68,6 +72,11 @@ textarea{min-height:84px;resize:vertical;display:block}
 <div class="bar"><span class="cnt" id="cnt">0/300</span><button class="btn" id="pb" type="submit" disabled>Send</button></div>
 <div class="msg" id="pm" role="status"></div></form>
 </div>
+<div class="card bn"><h2 class="bh">📌 Pinned banner <small>top of the chat</small></h2>
+<div class="bprev" id="bprev" aria-hidden="true">🎉 <span id="bpt">No banner</span></div>
+<label for="bt" class="sr">Banner text</label><input type="text" id="bt" maxlength="90" placeholder="e.g. 🎉 @name just purchased a Follow Back" autocomplete="off">
+<div class="bar"><span class="cnt" id="bcnt">0/90</span><span><button class="btn sm ghost" id="bc" type="button">Clear</button> <button class="btn sm" id="bs" type="button">Save banner</button></span></div>
+<div class="msg" id="bm" role="status"></div></div>
 <div class="list"><h2>Recent texts <small id="ls"></small></h2><div id="list"></div></div>
 </section>
 
@@ -113,4 +122,15 @@ fetch(API+"/messages/"+m.id,{method:"DELETE",headers:{"Authorization":"Bearer "+
 row.appendChild(a);list.appendChild(row)})}).catch(function(){ls.textContent="Couldn't load texts"})}
 var t0=getTok();if(t0&&!tokValid(t0))clearTok();show(tokValid(getTok()));
 })();</script>
+<script>(function(){var API="https://nino-wall.yssn-nino.workers.dev",K="nino_owner_token",$=function(i){return document.getElementById(i)};var bt=$("bt"),bs=$("bs"),bc=$("bc"),bm=$("bm"),bpt=$("bpt"),bprev=$("bprev"),bcnt=$("bcnt");if(!bt)return;
+function tok(){try{return localStorage.getItem(K)||sessionStorage.getItem(K)}catch(e){return null}}
+function say(t,ok){bm.className="msg "+(ok?"ok":"err");bm.textContent=t}
+function prev(x){bprev.firstChild.nodeValue=x?"":"";bpt.textContent=x||"No banner showing";bprev.classList.toggle("off",!x);bcnt.textContent=bt.value.length+"/90"}
+function load(){fetch(API+"/banner",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){if(document.activeElement!==bt){bt.value=d.text||"";prev(d.text||"")}}).catch(function(){})}
+function save(text){var t=tok();if(!t){say("Signed out. Please sign in again.",false);return}bs.disabled=bc.disabled=true;say("Saving…",true);
+fetch(API+"/banner",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+t},body:JSON.stringify({text:text})}).then(function(r){return r.json().then(function(d){return{ok:r.ok,s:r.status,d:d}})}).then(function(x){if(!x.ok){say(x.s===401?"Signed out. Please sign in again.":(x.d.error||"Couldn't save."),false);return}bt.value=x.d.text;prev(x.d.text);say(x.d.text?"Banner is live on the wall ✓":"Banner cleared ✓",true)}).catch(function(){say("Couldn't reach the server.",false)}).then(function(){bs.disabled=bc.disabled=false})}
+bt.addEventListener("input",function(){prev(bt.value.trim())});
+bs.onclick=function(){save(bt.value.replace(/\s+/g," ").trim())};
+bc.onclick=function(){if(confirm("Remove the pinned banner from the wall?")){bt.value="";save("")}};
+load();setInterval(function(){if(!document.hidden&&!$("app").hidden)load()},30000)})();</script>
 </body></html>
