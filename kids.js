@@ -92,7 +92,7 @@
       var svg = b.parentNode.querySelector("svg").outerHTML;
       var w = window.open("", "_blank");
       if (!w) { window.print(); return; }
-      w.document.write('<!doctype html><title>Nino Travel coloring page</title><style>body{margin:0;font-family:sans-serif;text-align:center}svg{width:95vw;height:auto;max-height:85vh}p{color:#555;font-size:12px}</style>' + svg + "<p>Nino Travel · Kids' Zone · free for personal use</p><script>window.onload=function(){window.print()}<\/script>");
+      w.document.write('<!doctype html><title>Nino Verse coloring page</title><style>body{margin:0;font-family:sans-serif;text-align:center}svg{width:95vw;height:auto;max-height:85vh}p{color:#555;font-size:12px}</style>' + svg + "<p>Nino Verse · Kids' Zone · free for personal use</p><script>window.onload=function(){window.print()}<\/script>");
       w.document.close();
     });
   });

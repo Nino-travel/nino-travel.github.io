@@ -1,12 +1,12 @@
 /*
- * Nino Travel — site configuration
+ * Nino Verse — site configuration
  * --------------------------------------
  * Paste your partner/affiliate IDs below once each program approves you.
  * Every search link still works while a value is blank (it just won't be tracked
  * for commission yet). Nothing else in the site needs editing.
  */
 window.NV_CONFIG = {
-  siteName: "Nino Travel",
+  siteName: "Nino Verse",
   siteUrl: "https://nino-travel.github.io/",
 
   // Contact shown on policy pages and used for "Email us" links. Leave blank to

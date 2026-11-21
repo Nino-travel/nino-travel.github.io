@@ -1,4 +1,4 @@
-/* Nino Travel — search + UI logic (no build step, no dependencies) */
+/* Nino Verse — search + UI logic (no build step, no dependencies) */
 (function () {
   "use strict";
   var C = window.NV_CONFIG || { affiliates: {}, stripe: {} };

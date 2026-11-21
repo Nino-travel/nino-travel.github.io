@@ -1,6 +1,6 @@
-# Nino Travel
+# Nino Verse
 
-Static, mobile-first travel search & planning site for **Nino Travel** by YSSN Nino.
+Static, mobile-first travel search & planning site for **Nino Verse** by YSSN Nino.
 Live: https://nino-travel.github.io/
 
 * No build step: plain HTML/CSS/JS. Edit and push; GitHub Pages publishes automatically.
